@@ -66,11 +66,14 @@
 # 12-Jul-2014	Brendan Gregg	Created this.
 
 ### default variables
+current_path=$(pwd)
 tracing=/sys/kernel/debug/tracing
 flock=/var/tmp/.ftrace-lock
 opt_duration=0; duration=; opt_pid=0; pid=; opt_tid=0; tid=; pidtext=
 opt_headers=0; opt_proc=0; opt_time=0; opt_tail=0; opt_nodur=0; opt_cpu=0
 opt_max=0; max=0
+output_file_enable=0;
+
 trap ':' INT QUIT TERM PIPE HUP	# sends execution to end tracing section
 
 function usage {
@@ -87,6 +90,7 @@ function usage {
 	                 -L TID          # trace when this thread is on-CPU
 	                 -P              # show process names & PIDs
 	                 -t              # show timestamps
+	                 -f              # output trace info to file,default is funcgraph_output
 	                 -T              # comment function tails
 	  eg,
 	       funcgraph do_nanosleep    # trace do_nanosleep() and children
@@ -141,13 +145,14 @@ function edie {
 }
 
 ### process options
-while getopts aCd:DhHm:p:L:PtT opt
+while getopts afCd:DhHm:p:L:PtT opt
 do
 	case $opt in
 	a)	opt_headers=1; opt_proc=1; opt_time=1 ;;
 	C)	opt_cpu=1; ;;
 	d)	opt_duration=1; duration=$OPTARG ;;
 	D)	opt_nodur=1; ;;
+	f)	output_file_enable=1; ;;
 	m)	opt_max=1; max=$OPTARG ;;
 	p)	opt_pid=1; pid=$OPTARG ;;
 	L)	opt_tid=1; tid=$OPTARG ;;
@@ -240,9 +245,17 @@ if (( opt_nodur )); then
 	fi
 fi
 
+output_file="${current_path}/funcgraph_output"
+
+if ((output_file_enable)); then
+	if [ ! -f "$output_file" ]; then
+		touch "$output_file"
+	fi
+fi
 ### print trace buffer
 warn "echo > trace"
 if (( opt_duration )); then
+#	exec > "&output_file"
 	sleep $duration
 	if (( opt_headers )); then
 		cat trace
@@ -251,8 +264,16 @@ if (( opt_duration )); then
 	fi
 else
 	# trace_pipe lack headers, so fetch them from trace
-	(( opt_headers )) && cat trace
-	cat trace_pipe
+#	exec > "&output_file"
+#	(( opt_headers )) && cat trace > $output_file 2>&1
+#	cat trace_pipe > $output_file 2>&1
+	if (( output_file_enable )); then
+		(( opt_headers )) && cat trace | tee $output_file
+		cat trace_pipe | tee $output_file
+	else
+		(( opt_headers )) && cat trace
+		cat trace_pipe
+	fi
 fi
 
 ### end tracing
