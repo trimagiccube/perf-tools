@@ -245,8 +245,8 @@ if (( opt_nodur )); then
 	fi
 fi
 
-output_file="${current_path}/funcgraph_output"
-
+output_file="${current_path}/${funcs}_"_m"${max}funcgraph"
+echo $output_file
 if ((output_file_enable)); then
 	if [ ! -f "$output_file" ]; then
 		touch "$output_file"
