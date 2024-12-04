@@ -1,0 +1,3989 @@
+ 120)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+ 120)   0.368 us    |    irq_enter_rcu();
+ 120)               |    __sysvec_irq_work() {
+ 120)               |      __wake_up() {
+ 120)   0.164 us    |        _raw_spin_lock_irqsave();
+ 120)               |        __wake_up_common() {
+ 120)               |          autoremove_wake_function() {
+ 120)   3.194 us    |            default_wake_function();
+ 120)   3.681 us    |          }
+ 120)   4.461 us    |        }
+ 120)   0.260 us    |        _raw_spin_unlock_irqrestore();
+ 120)   5.692 us    |      }
+ 120)   6.277 us    |    }
+ 120)               |    irq_exit_rcu() {
+ 120)   0.224 us    |      sched_core_idle_cpu();
+ 120)   0.661 us    |    }
+ 120)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+ 120)               |      flush_work() {
+ 120)               |        __flush_work.isra.0() {
+ 120)   0.250 us    |          __cond_resched();
+ 120)   0.231 us    |          __rcu_read_lock();
+ 120)   0.237 us    |          __rcu_read_unlock();
+ 120)   1.688 us    |        }
+ 120)   2.158 us    |      }
+ 120)               |      down_write() {
+ 120)   0.237 us    |        __cond_resched();
+ 120)   0.626 us    |      }
+ 120)   3.425 us    |    }
+ 120)               |    mutex_lock() {
+ 120)   0.226 us    |      __cond_resched();
+ 120)   0.646 us    |    }
+ 120)   0.235 us    |    up_write();
+ 120)   0.227 us    |    mutex_unlock();
+ 120)               |    mutex_lock() {
+ 120)   0.175 us    |      __cond_resched();
+ 120)   0.584 us    |    }
+ 120)   0.216 us    |    kfd_process_device_data_by_id [amdgpu]();
+ 120)   0.222 us    |    kfd_bind_process_to_device [amdgpu]();
+ 120)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+ 120)               |      create_sg_table [amdgpu]() {
+ 120)               |        kmalloc_trace() {
+ 120)   0.226 us    |          __cond_resched();
+ 120)   0.188 us    |          should_failslab.constprop.0();
+ 120)   1.116 us    |        }
+ 120)               |        __kmalloc() {
+ 120)   0.237 us    |          __cond_resched();
+ 120)   0.193 us    |          should_failslab.constprop.0();
+ 120)   1.700 us    |        }
+ 120)   3.792 us    |      }
+ 120)               |      kmalloc_trace() {
+ 120)   0.196 us    |        __cond_resched();
+ 120)   0.194 us    |        should_failslab.constprop.0();
+ 120)   1.009 us    |      }
+ 120)   0.184 us    |      __mutex_init();
+ 120)   0.178 us    |      amdgpu_sync_create [amdgpu]();
+ 120)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+ 120)   0.228 us    |        amdgpu_ras_get_context [amdgpu]();
+ 120)   0.201 us    |        _raw_spin_lock();
+ 120)   0.199 us    |        _raw_spin_unlock();
+ 120)   1.420 us    |      }
+ 120)               |      amdgpu_gem_object_create [amdgpu]() {
+ 120)               |        amdgpu_bo_create_user [amdgpu]() {
+ 120)               |          amdgpu_bo_create [amdgpu]() {
+ 120)   0.691 us    |            kvmalloc_node();
+ 120)   0.440 us    |            drm_gem_private_object_init();
+ 120)   0.275 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)   7.594 us    |            amdttm_bo_init_reserved [amdttm]();
+ 120)   0.444 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+ 120)   0.194 us    |            _raw_spin_lock();
+ 120)   0.319 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.169 us    |            _raw_spin_unlock();
+ 120)   0.216 us    |            ww_mutex_unlock();
+ 120) + 12.554 us   |          }
+ 120) + 12.861 us   |        }
+ 120) + 14.109 us   |      }
+ 120)               |      drm_vma_node_allow() {
+ 120)               |        vma_node_allow() {
+ 120)               |          kmalloc_trace() {
+ 120)   0.195 us    |            __cond_resched();
+ 120)   0.156 us    |            should_failslab.constprop.0();
+ 120)   0.941 us    |          }
+ 120)   0.222 us    |          _raw_write_lock();
+ 120)   0.152 us    |          _raw_write_unlock();
+ 120)   0.165 us    |          kfree();
+ 120)   2.263 us    |        }
+ 120)   2.619 us    |      }
+ 120)               |      drm_gem_handle_create() {
+ 120)               |        mutex_lock() {
+ 120)   0.205 us    |          __cond_resched();
+ 120)   0.513 us    |        }
+ 120)               |        drm_gem_handle_create_tail() {
+ 120)   0.146 us    |          mutex_is_locked();
+ 120)   0.210 us    |          _raw_spin_lock();
+ 120)   0.155 us    |          _raw_spin_unlock();
+ 120)   0.200 us    |          mutex_unlock();
+ 120)               |          drm_vma_node_allow() {
+ 120)   0.642 us    |            vma_node_allow();
+ 120)   1.030 us    |          }
+ 120)               |          amdgpu_gem_object_open [amdgpu]() {
+ 120)   0.162 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.333 us    |            ww_mutex_lock_interruptible();
+ 120)   0.178 us    |            amdgpu_vm_bo_find [amdgpu]();
+ 120)   1.280 us    |            amdgpu_vm_bo_add [amdgpu]();
+ 120)   0.169 us    |            _raw_spin_lock();
+ 120)   0.290 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.166 us    |            _raw_spin_unlock();
+ 120)   0.184 us    |            ww_mutex_unlock();
+ 120)   4.064 us    |          }
+ 120)   7.088 us    |        }
+ 120)   8.007 us    |      }
+ 120)               |      mutex_lock() {
+ 120)   0.192 us    |        __cond_resched();
+ 120)   0.528 us    |      }
+ 120)   0.159 us    |      mutex_unlock();
+ 120)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+ 120)               |        ww_mutex_lock_interruptible() {
+ 120)   0.157 us    |          __cond_resched();
+ 120)   0.520 us    |        }
+ 120)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+ 120)   0.153 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.225 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)               |          amdttm_bo_validate [amdttm]() {
+ 120)   0.163 us    |            ttm_resource_compatible [amdttm]();
+ 120)   1.676 us    |            amdttm_bo_mem_space [amdttm]();
+ 120)   3.207 us    |            ttm_bo_handle_move_mem [amdttm]();
+ 120)   5.643 us    |          }
+ 120)               |          amdttm_bo_pin [amdttm]() {
+ 120)   0.215 us    |            _raw_spin_lock();
+ 120)   0.188 us    |            ttm_resource_del_bulk_move [amdttm]();
+ 120)   0.183 us    |            _raw_spin_unlock();
+ 120)   1.231 us    |          }
+ 120)   8.078 us    |        }
+ 120)               |        amdgpu_bo_sync_wait [amdgpu]() {
+ 120)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+ 120)   0.194 us    |            amdgpu_sync_create [amdgpu]();
+ 120)   0.330 us    |            amdgpu_sync_resv [amdgpu]();
+ 120)   0.209 us    |            amdgpu_sync_wait [amdgpu]();
+ 120)   0.156 us    |            amdgpu_sync_free [amdgpu]();
+ 120)   1.627 us    |          }
+ 120)   1.914 us    |        }
+ 120)   0.210 us    |        _raw_spin_lock();
+ 120)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+ 120)   0.148 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+ 120)   0.423 us    |        }
+ 120)   0.370 us    |        _raw_spin_unlock();
+ 120)   0.164 us    |        ww_mutex_unlock();
+ 120) + 12.775 us   |      }
+ 120) + 47.231 us   |    }
+ 120)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+ 120)               |      kmalloc_trace() {
+ 120)   0.152 us    |        __cond_resched();
+ 120)   0.193 us    |        should_failslab.constprop.0();
+ 120)   0.835 us    |      }
+ 120)               |      kmem_cache_alloc() {
+ 120)   0.187 us    |        __cond_resched();
+ 120)   0.160 us    |        should_failslab.constprop.0();
+ 120)   0.847 us    |      }
+ 120)   2.665 us    |    }
+ 120)   0.206 us    |    mutex_unlock();
+ 120) + 70.565 us   |  }
+ 120)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+ 120)   0.306 us    |    irq_enter_rcu();
+ 120)               |    __sysvec_irq_work() {
+ 120)               |      __wake_up() {
+ 120)   0.322 us    |        _raw_spin_lock_irqsave();
+ 120)               |        __wake_up_common() {
+ 120)               |          autoremove_wake_function() {
+ 120)   2.715 us    |            default_wake_function();
+ 120)   3.044 us    |          }
+ 120)   3.673 us    |        }
+ 120)   0.244 us    |        _raw_spin_unlock_irqrestore();
+ 120)   4.886 us    |      }
+ 120)   5.445 us    |    }
+ 120)               |    irq_exit_rcu() {
+ 120)   0.231 us    |      sched_core_idle_cpu();
+ 120)   0.681 us    |    }
+ 120)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+ 120)               |      flush_work() {
+ 120)               |        __flush_work.isra.0() {
+ 120)   0.242 us    |          __cond_resched();
+ 120)   0.250 us    |          __rcu_read_lock();
+ 120)   0.248 us    |          __rcu_read_unlock();
+ 120)   1.823 us    |        }
+ 120)   2.260 us    |      }
+ 120)               |      down_write() {
+ 120)   0.239 us    |        __cond_resched();
+ 120)   0.657 us    |      }
+ 120)   3.625 us    |    }
+ 120)               |    mutex_lock() {
+ 120)   0.249 us    |      __cond_resched();
+ 120)   0.669 us    |    }
+ 120)   0.224 us    |    up_write();
+ 120)   0.245 us    |    mutex_unlock();
+ 120)               |    mutex_lock() {
+ 120)   0.197 us    |      __cond_resched();
+ 120)   0.586 us    |    }
+ 120)   0.234 us    |    kfd_process_device_data_by_id [amdgpu]();
+ 120)   0.240 us    |    kfd_bind_process_to_device [amdgpu]();
+ 120)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+ 120)               |      create_sg_table [amdgpu]() {
+ 120)               |        kmalloc_trace() {
+ 120)   0.201 us    |          __cond_resched();
+ 120)   0.211 us    |          should_failslab.constprop.0();
+ 120)   1.010 us    |        }
+ 120)               |        __kmalloc() {
+ 120)   0.187 us    |          __cond_resched();
+ 120)   0.251 us    |          should_failslab.constprop.0();
+ 120)   1.242 us    |        }
+ 120)   3.067 us    |      }
+ 120)               |      kmalloc_trace() {
+ 120)   0.216 us    |        __cond_resched();
+ 120)   0.179 us    |        should_failslab.constprop.0();
+ 120)   1.067 us    |      }
+ 120)   0.182 us    |      __mutex_init();
+ 120)   0.194 us    |      amdgpu_sync_create [amdgpu]();
+ 120)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+ 120)   0.456 us    |        amdgpu_ras_get_context [amdgpu]();
+ 120)   0.264 us    |        _raw_spin_lock();
+ 120)   0.199 us    |        _raw_spin_unlock();
+ 120)   2.508 us    |      }
+ 120)               |      amdgpu_gem_object_create [amdgpu]() {
+ 120)               |        amdgpu_bo_create_user [amdgpu]() {
+ 120)               |          amdgpu_bo_create [amdgpu]() {
+ 120)   0.722 us    |            kvmalloc_node();
+ 120)   0.497 us    |            drm_gem_private_object_init();
+ 120)   0.334 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)   9.289 us    |            amdttm_bo_init_reserved [amdttm]();
+ 120)   0.653 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+ 120)   0.217 us    |            _raw_spin_lock();
+ 120)   0.330 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.242 us    |            _raw_spin_unlock();
+ 120)   0.241 us    |            ww_mutex_unlock();
+ 120) + 15.105 us   |          }
+ 120) + 15.575 us   |        }
+ 120) + 16.082 us   |      }
+ 120)               |      drm_vma_node_allow() {
+ 120)               |        vma_node_allow() {
+ 120)               |          kmalloc_trace() {
+ 120)   0.183 us    |            __cond_resched();
+ 120)   0.194 us    |            should_failslab.constprop.0();
+ 120)   1.063 us    |          }
+ 120)   0.223 us    |          _raw_write_lock();
+ 120)   0.221 us    |          _raw_write_unlock();
+ 120)   0.207 us    |          kfree();
+ 120)   2.523 us    |        }
+ 120)   2.883 us    |      }
+ 120)               |      drm_gem_handle_create() {
+ 120)               |        mutex_lock() {
+ 120)   0.223 us    |          __cond_resched();
+ 120)   0.773 us    |        }
+ 120)               |        drm_gem_handle_create_tail() {
+ 120)   0.212 us    |          mutex_is_locked();
+ 120)   0.221 us    |          _raw_spin_lock();
+ 120)   0.201 us    |          _raw_spin_unlock();
+ 120)   0.206 us    |          mutex_unlock();
+ 120)               |          drm_vma_node_allow() {
+ 120)   0.880 us    |            vma_node_allow();
+ 120)   1.308 us    |          }
+ 120)               |          amdgpu_gem_object_open [amdgpu]() {
+ 120)   0.211 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.327 us    |            ww_mutex_lock_interruptible();
+ 120)   0.220 us    |            amdgpu_vm_bo_find [amdgpu]();
+ 120)   1.122 us    |            amdgpu_vm_bo_add [amdgpu]();
+ 120)   0.199 us    |            _raw_spin_lock();
+ 120)   0.318 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.213 us    |            _raw_spin_unlock();
+ 120)   0.234 us    |            ww_mutex_unlock();
+ 120)   4.760 us    |          }
+ 120)   8.947 us    |        }
+ 120) + 10.205 us   |      }
+ 120)               |      mutex_lock() {
+ 120)   0.191 us    |        __cond_resched();
+ 120)   0.647 us    |      }
+ 120)   0.167 us    |      mutex_unlock();
+ 120)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+ 120)               |        ww_mutex_lock_interruptible() {
+ 120)   0.210 us    |          __cond_resched();
+ 120)   0.559 us    |        }
+ 120)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+ 120)   0.219 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.204 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)               |          amdttm_bo_validate [amdttm]() {
+ 120)   0.211 us    |            ttm_resource_compatible [amdttm]();
+ 120)   1.988 us    |            amdttm_bo_mem_space [amdttm]();
+ 120)   3.670 us    |            ttm_bo_handle_move_mem [amdttm]();
+ 120)   6.643 us    |          }
+ 120)               |          amdttm_bo_pin [amdttm]() {
+ 120)   0.224 us    |            _raw_spin_lock();
+ 120)   0.210 us    |            ttm_resource_del_bulk_move [amdttm]();
+ 120)   0.237 us    |            _raw_spin_unlock();
+ 120)   1.743 us    |          }
+ 120)   9.862 us    |        }
+ 120)               |        amdgpu_bo_sync_wait [amdgpu]() {
+ 120)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+ 120)   0.191 us    |            amdgpu_sync_create [amdgpu]();
+ 120)   0.472 us    |            amdgpu_sync_resv [amdgpu]();
+ 120)   0.364 us    |            amdgpu_sync_wait [amdgpu]();
+ 120)   0.271 us    |            amdgpu_sync_free [amdgpu]();
+ 120)   2.155 us    |          }
+ 120)   2.575 us    |        }
+ 120)   0.205 us    |        _raw_spin_lock();
+ 120)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+ 120)   0.233 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+ 120)   0.588 us    |        }
+ 120)   0.195 us    |        _raw_spin_unlock();
+ 120)   0.176 us    |        ww_mutex_unlock();
+ 120) + 15.555 us   |      }
+ 120) + 55.610 us   |    }
+ 120)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+ 120)               |      kmalloc_trace() {
+ 120)   0.227 us    |        __cond_resched();
+ 120)   0.231 us    |        should_failslab.constprop.0();
+ 120)   1.167 us    |      }
+ 120)               |      kmem_cache_alloc() {
+ 120)   0.233 us    |        __cond_resched();
+ 120)   0.246 us    |        should_failslab.constprop.0();
+ 120)   1.223 us    |      }
+ 120)   3.392 us    |    }
+ 120)   0.276 us    |    mutex_unlock();
+ 120) + 77.045 us   |  }
+ 120)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+ 120)   0.301 us    |    irq_enter_rcu();
+ 120)               |    __sysvec_irq_work() {
+ 120)               |      __wake_up() {
+ 120)   0.165 us    |        _raw_spin_lock_irqsave();
+ 120)               |        __wake_up_common() {
+ 120)               |          autoremove_wake_function() {
+ 120)   2.430 us    |            default_wake_function();
+ 120)   2.773 us    |          }
+ 120)   3.367 us    |        }
+ 120)   0.246 us    |        _raw_spin_unlock_irqrestore();
+ 120)   4.469 us    |      }
+ 120)   5.123 us    |    }
+ 120)               |    irq_exit_rcu() {
+ 120)   0.248 us    |      sched_core_idle_cpu();
+ 120)   0.722 us    |    }
+ 120)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+ 120)               |      flush_work() {
+ 120)               |        __flush_work.isra.0() {
+ 120)   0.255 us    |          __cond_resched();
+ 120)   0.248 us    |          __rcu_read_lock();
+ 120)   0.228 us    |          __rcu_read_unlock();
+ 120)   1.781 us    |        }
+ 120)   2.264 us    |      }
+ 120)               |      down_write() {
+ 120)   0.236 us    |        __cond_resched();
+ 120)   0.608 us    |      }
+ 120)   3.574 us    |    }
+ 120)               |    mutex_lock() {
+ 120)   0.218 us    |      __cond_resched();
+ 120)   0.630 us    |    }
+ 120)   0.216 us    |    up_write();
+ 120)   0.216 us    |    mutex_unlock();
+ 120)               |    mutex_lock() {
+ 120)   0.190 us    |      __cond_resched();
+ 120)   0.594 us    |    }
+ 120)   0.216 us    |    kfd_process_device_data_by_id [amdgpu]();
+ 120)   0.236 us    |    kfd_bind_process_to_device [amdgpu]();
+ 120)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+ 120)               |      create_sg_table [amdgpu]() {
+ 120)               |        kmalloc_trace() {
+ 120)   0.186 us    |          __cond_resched();
+ 120)   0.181 us    |          should_failslab.constprop.0();
+ 120)   0.969 us    |        }
+ 120)               |        __kmalloc() {
+ 120)   0.230 us    |          __cond_resched();
+ 120)   0.157 us    |          should_failslab.constprop.0();
+ 120)   1.075 us    |        }
+ 120)   3.303 us    |      }
+ 120)               |      kmalloc_trace() {
+ 120)   0.184 us    |        __cond_resched();
+ 120)   0.209 us    |        should_failslab.constprop.0();
+ 120)   1.045 us    |      }
+ 120)   0.228 us    |      __mutex_init();
+ 120)   0.216 us    |      amdgpu_sync_create [amdgpu]();
+ 120)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+ 120)   0.267 us    |        amdgpu_ras_get_context [amdgpu]();
+ 120)   0.265 us    |        _raw_spin_lock();
+ 120)   0.227 us    |        _raw_spin_unlock();
+ 120)   1.867 us    |      }
+ 120)               |      amdgpu_gem_object_create [amdgpu]() {
+ 120)               |        amdgpu_bo_create_user [amdgpu]() {
+ 120)               |          amdgpu_bo_create [amdgpu]() {
+ 120)   0.635 us    |            kvmalloc_node();
+ 120)   0.478 us    |            drm_gem_private_object_init();
+ 120)   0.295 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)   9.169 us    |            amdttm_bo_init_reserved [amdttm]();
+ 120)   0.413 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+ 120)   0.256 us    |            _raw_spin_lock();
+ 120)   0.317 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.239 us    |            _raw_spin_unlock();
+ 120)   0.222 us    |            ww_mutex_unlock();
+ 120) + 14.362 us   |          }
+ 120) + 14.755 us   |        }
+ 120) + 15.171 us   |      }
+ 120)               |      drm_vma_node_allow() {
+ 120)               |        vma_node_allow() {
+ 120)               |          kmalloc_trace() {
+ 120)   0.201 us    |            __cond_resched();
+ 120)   0.202 us    |            should_failslab.constprop.0();
+ 120)   0.924 us    |          }
+ 120)   0.219 us    |          _raw_write_lock();
+ 120)   0.218 us    |          _raw_write_unlock();
+ 120)   0.207 us    |          kfree();
+ 120)   2.434 us    |        }
+ 120)   2.839 us    |      }
+ 120)               |      drm_gem_handle_create() {
+ 120)               |        mutex_lock() {
+ 120)   0.199 us    |          __cond_resched();
+ 120)   0.828 us    |        }
+ 120)               |        drm_gem_handle_create_tail() {
+ 120)   0.204 us    |          mutex_is_locked();
+ 120)   0.247 us    |          _raw_spin_lock();
+ 120)   0.250 us    |          _raw_spin_unlock();
+ 120)   0.249 us    |          mutex_unlock();
+ 120)               |          drm_vma_node_allow() {
+ 120)   0.905 us    |            vma_node_allow();
+ 120)   1.257 us    |          }
+ 120)               |          amdgpu_gem_object_open [amdgpu]() {
+ 120)   0.205 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.314 us    |            ww_mutex_lock_interruptible();
+ 120)   0.218 us    |            amdgpu_vm_bo_find [amdgpu]();
+ 120)   1.189 us    |            amdgpu_vm_bo_add [amdgpu]();
+ 120)   0.228 us    |            _raw_spin_lock();
+ 120)   0.316 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.191 us    |            _raw_spin_unlock();
+ 120)   0.255 us    |            ww_mutex_unlock();
+ 120)   4.670 us    |          }
+ 120)   8.761 us    |        }
+ 120) + 10.107 us   |      }
+ 120)               |      mutex_lock() {
+ 120)   0.224 us    |        __cond_resched();
+ 120)   0.628 us    |      }
+ 120)   0.221 us    |      mutex_unlock();
+ 120)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+ 120)               |        ww_mutex_lock_interruptible() {
+ 120)   0.203 us    |          __cond_resched();
+ 120)   0.588 us    |        }
+ 120)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+ 120)   0.195 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.250 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)               |          amdttm_bo_validate [amdttm]() {
+ 120)   0.221 us    |            ttm_resource_compatible [amdttm]();
+ 120)   1.830 us    |            amdttm_bo_mem_space [amdttm]();
+ 120)   3.694 us    |            ttm_bo_handle_move_mem [amdttm]();
+ 120)   6.523 us    |          }
+ 120)               |          amdttm_bo_pin [amdttm]() {
+ 120)   0.256 us    |            _raw_spin_lock();
+ 120)   0.243 us    |            ttm_resource_del_bulk_move [amdttm]();
+ 120)   0.191 us    |            _raw_spin_unlock();
+ 120)   1.455 us    |          }
+ 120)   9.450 us    |        }
+ 120)               |        amdgpu_bo_sync_wait [amdgpu]() {
+ 120)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+ 120)   0.190 us    |            amdgpu_sync_create [amdgpu]();
+ 120)   0.431 us    |            amdgpu_sync_resv [amdgpu]();
+ 120)   0.339 us    |            amdgpu_sync_wait [amdgpu]();
+ 120)   0.256 us    |            amdgpu_sync_free [amdgpu]();
+ 120)   2.138 us    |          }
+ 120)   2.464 us    |        }
+ 120)   0.201 us    |        _raw_spin_lock();
+ 120)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+ 120)   0.195 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+ 120)   0.946 us    |        }
+ 120)   0.198 us    |        _raw_spin_unlock();
+ 120)   0.331 us    |        ww_mutex_unlock();
+ 120) + 15.707 us   |      }
+ 120) + 54.325 us   |    }
+ 120)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+ 120)               |      kmalloc_trace() {
+ 120)   0.247 us    |        __cond_resched();
+ 120)   0.160 us    |        should_failslab.constprop.0();
+ 120)   1.157 us    |      }
+ 120)               |      kmem_cache_alloc() {
+ 120)   0.213 us    |        __cond_resched();
+ 120)   0.239 us    |        should_failslab.constprop.0();
+ 120)   1.330 us    |      }
+ 120)   3.407 us    |    }
+ 120)   0.271 us    |    mutex_unlock();
+ 120) + 74.784 us   |  }
+ 120)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+ 120)   0.305 us    |    irq_enter_rcu();
+ 120)               |    __sysvec_irq_work() {
+ 120)               |      __wake_up() {
+ 120)   0.158 us    |        _raw_spin_lock_irqsave();
+ 120)               |        __wake_up_common() {
+ 120)               |          autoremove_wake_function() {
+ 120)   2.506 us    |            default_wake_function();
+ 120)   2.861 us    |          }
+ 120)   3.478 us    |        }
+ 120)   0.275 us    |        _raw_spin_unlock_irqrestore();
+ 120)   4.565 us    |      }
+ 120)   5.219 us    |    }
+ 120)               |    irq_exit_rcu() {
+ 120)   0.235 us    |      sched_core_idle_cpu();
+ 120)   0.758 us    |    }
+ 120)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+ 120)               |      flush_work() {
+ 120)               |        __flush_work.isra.0() {
+ 120)   0.261 us    |          __cond_resched();
+ 120)   0.259 us    |          __rcu_read_lock();
+ 120)   0.248 us    |          __rcu_read_unlock();
+ 120)   1.898 us    |        }
+ 120)   2.344 us    |      }
+ 120)               |      down_write() {
+ 120)   0.216 us    |        __cond_resched();
+ 120)   0.621 us    |      }
+ 120)   3.685 us    |    }
+ 120)               |    mutex_lock() {
+ 120)   0.205 us    |      __cond_resched();
+ 120)   0.770 us    |    }
+ 120)   0.248 us    |    up_write();
+ 120)   0.264 us    |    mutex_unlock();
+ 120)               |    mutex_lock() {
+ 120)   0.221 us    |      __cond_resched();
+ 120)   0.635 us    |    }
+ 120)   0.213 us    |    kfd_process_device_data_by_id [amdgpu]();
+ 120)   0.164 us    |    kfd_bind_process_to_device [amdgpu]();
+ 120)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+ 120)               |      create_sg_table [amdgpu]() {
+ 120)               |        kmalloc_trace() {
+ 120)   0.205 us    |          __cond_resched();
+ 120)   0.234 us    |          should_failslab.constprop.0();
+ 120)   1.079 us    |        }
+ 120)               |        __kmalloc() {
+ 120)   0.199 us    |          __cond_resched();
+ 120)   0.182 us    |          should_failslab.constprop.0();
+ 120)   0.993 us    |        }
+ 120)   2.736 us    |      }
+ 120)               |      kmalloc_trace() {
+ 120)   0.183 us    |        __cond_resched();
+ 120)   0.219 us    |        should_failslab.constprop.0();
+ 120)   1.132 us    |      }
+ 120)   0.249 us    |      __mutex_init();
+ 120)   0.225 us    |      amdgpu_sync_create [amdgpu]();
+ 120)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+ 120)   0.261 us    |        amdgpu_ras_get_context [amdgpu]();
+ 120)   0.280 us    |        _raw_spin_lock();
+ 120)   0.195 us    |        _raw_spin_unlock();
+ 120)   1.828 us    |      }
+ 120)               |      amdgpu_gem_object_create [amdgpu]() {
+ 120)               |        amdgpu_bo_create_user [amdgpu]() {
+ 120)               |          amdgpu_bo_create [amdgpu]() {
+ 120)   0.811 us    |            kvmalloc_node();
+ 120)   0.532 us    |            drm_gem_private_object_init();
+ 120)   0.293 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)   8.969 us    |            amdttm_bo_init_reserved [amdttm]();
+ 120)   0.403 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+ 120)   0.242 us    |            _raw_spin_lock();
+ 120)   0.315 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.197 us    |            _raw_spin_unlock();
+ 120)   0.199 us    |            ww_mutex_unlock();
+ 120) + 14.437 us   |          }
+ 120) + 14.854 us   |        }
+ 120) + 15.342 us   |      }
+ 120)               |      drm_vma_node_allow() {
+ 120)               |        vma_node_allow() {
+ 120)               |          kmalloc_trace() {
+ 120)   0.210 us    |            __cond_resched();
+ 120)   0.191 us    |            should_failslab.constprop.0();
+ 120)   1.016 us    |          }
+ 120)   0.205 us    |          _raw_write_lock();
+ 120)   0.182 us    |          _raw_write_unlock();
+ 120)   0.232 us    |          kfree();
+ 120)   2.534 us    |        }
+ 120)   2.880 us    |      }
+ 120)               |      drm_gem_handle_create() {
+ 120)               |        mutex_lock() {
+ 120)   0.172 us    |          __cond_resched();
+ 120)   0.599 us    |        }
+ 120)               |        drm_gem_handle_create_tail() {
+ 120)   0.184 us    |          mutex_is_locked();
+ 120)   0.224 us    |          _raw_spin_lock();
+ 120)   0.210 us    |          _raw_spin_unlock();
+ 120)   0.238 us    |          mutex_unlock();
+ 120)               |          drm_vma_node_allow() {
+ 120)   0.806 us    |            vma_node_allow();
+ 120)   1.216 us    |          }
+ 120)               |          amdgpu_gem_object_open [amdgpu]() {
+ 120)   0.267 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.351 us    |            ww_mutex_lock_interruptible();
+ 120)   0.221 us    |            amdgpu_vm_bo_find [amdgpu]();
+ 120)   1.207 us    |            amdgpu_vm_bo_add [amdgpu]();
+ 120)   0.234 us    |            _raw_spin_lock();
+ 120)   0.301 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.219 us    |            _raw_spin_unlock();
+ 120)   0.260 us    |            ww_mutex_unlock();
+ 120)   4.911 us    |          }
+ 120)   8.860 us    |        }
+ 120)   9.958 us    |      }
+ 120)               |      mutex_lock() {
+ 120)   0.194 us    |        __cond_resched();
+ 120)   0.648 us    |      }
+ 120)   0.169 us    |      mutex_unlock();
+ 120)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+ 120)               |        ww_mutex_lock_interruptible() {
+ 120)   0.205 us    |          __cond_resched();
+ 120)   0.546 us    |        }
+ 120)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+ 120)   0.225 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.245 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)               |          amdttm_bo_validate [amdttm]() {
+ 120)   0.242 us    |            ttm_resource_compatible [amdttm]();
+ 120)   1.906 us    |            amdttm_bo_mem_space [amdttm]();
+ 120) + 64.071 us   |            ttm_bo_handle_move_mem [amdttm]();
+ 120) + 66.965 us   |          }
+ 120)               |          amdttm_bo_pin [amdttm]() {
+ 120)   0.289 us    |            _raw_spin_lock();
+ 120)   0.283 us    |            ttm_resource_del_bulk_move [amdttm]();
+ 120)   0.257 us    |            _raw_spin_unlock();
+ 120)   1.798 us    |          }
+ 120) + 70.272 us   |        }
+ 120)               |        amdgpu_bo_sync_wait [amdgpu]() {
+ 120)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+ 120)   0.270 us    |            amdgpu_sync_create [amdgpu]();
+ 120)   0.578 us    |            amdgpu_sync_resv [amdgpu]();
+ 120)   0.392 us    |            amdgpu_sync_wait [amdgpu]();
+ 120)   0.326 us    |            amdgpu_sync_free [amdgpu]();
+ 120)   2.696 us    |          }
+ 120)   3.173 us    |        }
+ 120)   0.270 us    |        _raw_spin_lock();
+ 120)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+ 120)   0.305 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+ 120)   0.813 us    |        }
+ 120)   0.270 us    |        _raw_spin_unlock();
+ 120)   0.273 us    |        ww_mutex_unlock();
+ 120) + 77.303 us   |      }
+ 120) ! 115.187 us  |    }
+ 120)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+ 120)               |      kmalloc_trace() {
+ 120)   0.244 us    |        __cond_resched();
+ 120)   0.239 us    |        should_failslab.constprop.0();
+ 120)   1.303 us    |      }
+ 120)               |      kmem_cache_alloc() {
+ 120)   0.273 us    |        __cond_resched();
+ 120)   0.250 us    |        should_failslab.constprop.0();
+ 120)   1.333 us    |      }
+ 120)   3.749 us    |    }
+ 120)   0.290 us    |    mutex_unlock();
+ 120) ! 137.008 us  |  }
+ 120)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+ 120)   0.304 us    |    irq_enter_rcu();
+ 120)               |    __sysvec_irq_work() {
+ 120)               |      __wake_up() {
+ 120)   0.195 us    |        _raw_spin_lock_irqsave();
+ 120)               |        __wake_up_common() {
+ 120)               |          autoremove_wake_function() {
+ 120)   2.541 us    |            default_wake_function();
+ 120)   2.891 us    |          }
+ 120)   3.483 us    |        }
+ 120)   0.580 us    |        _raw_spin_unlock_irqrestore();
+ 120)   5.005 us    |      }
+ 120)   5.629 us    |    }
+ 120)               |    irq_exit_rcu() {
+ 120)   0.206 us    |      sched_core_idle_cpu();
+ 120)   0.736 us    |    }
+ 120)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+ 120)               |      flush_work() {
+ 120)               |        __flush_work.isra.0() {
+ 120)   0.236 us    |          __cond_resched();
+ 120)   0.385 us    |          __rcu_read_lock();
+ 120)   0.353 us    |          __rcu_read_unlock();
+ 120)   1.989 us    |        }
+ 120)   2.500 us    |      }
+ 120)               |      down_write() {
+ 120)   0.208 us    |        __cond_resched();
+ 120)   0.636 us    |      }
+ 120)   3.815 us    |    }
+ 120)               |    mutex_lock() {
+ 120)   0.236 us    |      __cond_resched();
+ 120)   0.779 us    |    }
+ 120)   0.206 us    |    up_write();
+ 120)   0.240 us    |    mutex_unlock();
+ 120)               |    mutex_lock() {
+ 120)   0.205 us    |      __cond_resched();
+ 120)   0.566 us    |    }
+ 120)   0.254 us    |    kfd_process_device_data_by_id [amdgpu]();
+ 120)   0.240 us    |    kfd_bind_process_to_device [amdgpu]();
+ 120)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+ 120)               |      create_sg_table [amdgpu]() {
+ 120)               |        kmalloc_trace() {
+ 120)   0.179 us    |          __cond_resched();
+ 120)   0.210 us    |          should_failslab.constprop.0();
+ 120)   0.930 us    |        }
+ 120)               |        __kmalloc() {
+ 120)   0.203 us    |          __cond_resched();
+ 120)   0.224 us    |          should_failslab.constprop.0();
+ 120)   1.113 us    |        }
+ 120)   2.781 us    |      }
+ 120)               |      kmalloc_trace() {
+ 120)   0.179 us    |        __cond_resched();
+ 120)   0.148 us    |        should_failslab.constprop.0();
+ 120)   1.030 us    |      }
+ 120)   0.196 us    |      __mutex_init();
+ 120)   0.235 us    |      amdgpu_sync_create [amdgpu]();
+ 120)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+ 120)   0.219 us    |        amdgpu_ras_get_context [amdgpu]();
+ 120)   0.278 us    |        _raw_spin_lock();
+ 120)   0.243 us    |        _raw_spin_unlock();
+ 120)   1.632 us    |      }
+ 120)               |      amdgpu_gem_object_create [amdgpu]() {
+ 120)               |        amdgpu_bo_create_user [amdgpu]() {
+ 120)               |          amdgpu_bo_create [amdgpu]() {
+ 120)   0.613 us    |            kvmalloc_node();
+ 120)   0.505 us    |            drm_gem_private_object_init();
+ 120)   0.317 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)   9.341 us    |            amdttm_bo_init_reserved [amdttm]();
+ 120)   0.447 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+ 120)   0.248 us    |            _raw_spin_lock();
+ 120)   0.308 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.223 us    |            _raw_spin_unlock();
+ 120)   0.238 us    |            ww_mutex_unlock();
+ 120) + 14.367 us   |          }
+ 120) + 14.816 us   |        }
+ 120) + 15.235 us   |      }
+ 120)               |      drm_vma_node_allow() {
+ 120)               |        vma_node_allow() {
+ 120)               |          kmalloc_trace() {
+ 120)   0.170 us    |            __cond_resched();
+ 120)   0.183 us    |            should_failslab.constprop.0();
+ 120)   0.975 us    |          }
+ 120)   0.214 us    |          _raw_write_lock();
+ 120)   0.222 us    |          _raw_write_unlock();
+ 120)   0.246 us    |          kfree();
+ 120)   2.760 us    |        }
+ 120)   3.196 us    |      }
+ 120)               |      drm_gem_handle_create() {
+ 120)               |        mutex_lock() {
+ 120)   0.184 us    |          __cond_resched();
+ 120)   0.608 us    |        }
+ 120)               |        drm_gem_handle_create_tail() {
+ 120)   0.223 us    |          mutex_is_locked();
+ 120)   0.213 us    |          _raw_spin_lock();
+ 120)   0.218 us    |          _raw_spin_unlock();
+ 120)   0.195 us    |          mutex_unlock();
+ 120)               |          drm_vma_node_allow() {
+ 120)   0.943 us    |            vma_node_allow();
+ 120)   1.332 us    |          }
+ 120)               |          amdgpu_gem_object_open [amdgpu]() {
+ 120)   0.252 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.293 us    |            ww_mutex_lock_interruptible();
+ 120)   0.219 us    |            amdgpu_vm_bo_find [amdgpu]();
+ 120)   1.149 us    |            amdgpu_vm_bo_add [amdgpu]();
+ 120)   0.217 us    |            _raw_spin_lock();
+ 120)   0.301 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.183 us    |            _raw_spin_unlock();
+ 120)   0.216 us    |            ww_mutex_unlock();
+ 120)   4.479 us    |          }
+ 120)   8.514 us    |        }
+ 120)   9.660 us    |      }
+ 120)               |      mutex_lock() {
+ 120)   0.218 us    |        __cond_resched();
+ 120)   0.607 us    |      }
+ 120)   0.207 us    |      mutex_unlock();
+ 120)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+ 120)               |        ww_mutex_lock_interruptible() {
+ 120)   0.189 us    |          __cond_resched();
+ 120)   0.522 us    |        }
+ 120)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+ 120)   0.180 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.214 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)               |          amdttm_bo_validate [amdttm]() {
+ 120)   0.194 us    |            ttm_resource_compatible [amdttm]();
+ 120)   2.225 us    |            amdttm_bo_mem_space [amdttm]();
+ 120)   3.782 us    |            ttm_bo_handle_move_mem [amdttm]();
+ 120)   6.996 us    |          }
+ 120)               |          amdttm_bo_pin [amdttm]() {
+ 120)   0.214 us    |            _raw_spin_lock();
+ 120)   0.221 us    |            ttm_resource_del_bulk_move [amdttm]();
+ 120)   0.239 us    |            _raw_spin_unlock();
+ 120)   1.449 us    |          }
+ 120)   9.898 us    |        }
+ 120)               |        amdgpu_bo_sync_wait [amdgpu]() {
+ 120)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+ 120)   0.206 us    |            amdgpu_sync_create [amdgpu]();
+ 120)   0.422 us    |            amdgpu_sync_resv [amdgpu]();
+ 120)   0.364 us    |            amdgpu_sync_wait [amdgpu]();
+ 120)   0.248 us    |            amdgpu_sync_free [amdgpu]();
+ 120)   2.130 us    |          }
+ 120)   2.494 us    |        }
+ 120)   0.201 us    |        _raw_spin_lock();
+ 120)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+ 120)   0.226 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+ 120)   0.788 us    |        }
+ 120)   0.160 us    |        _raw_spin_unlock();
+ 120)   0.191 us    |        ww_mutex_unlock();
+ 120) + 15.694 us   |      }
+ 120) + 52.957 us   |    }
+ 120)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+ 120)               |      kmalloc_trace() {
+ 120)   0.214 us    |        __cond_resched();
+ 120)   0.212 us    |        should_failslab.constprop.0();
+ 120)   1.006 us    |      }
+ 120)               |      kmem_cache_alloc() {
+ 120)   0.185 us    |        __cond_resched();
+ 120)   0.215 us    |        should_failslab.constprop.0();
+ 120)   1.144 us    |      }
+ 120)   3.497 us    |    }
+ 120)   0.273 us    |    mutex_unlock();
+ 120) + 74.571 us   |  }
+ 120)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+ 120)   0.342 us    |    irq_enter_rcu();
+ 120)               |    __sysvec_irq_work() {
+ 120)               |      __wake_up() {
+ 120)   0.180 us    |        _raw_spin_lock_irqsave();
+ 120)               |        __wake_up_common() {
+ 120)               |          autoremove_wake_function() {
+ 120)   2.463 us    |            default_wake_function();
+ 120)   2.801 us    |          }
+ 120)   3.224 us    |        }
+ 120)   0.266 us    |        _raw_spin_unlock_irqrestore();
+ 120)   4.285 us    |      }
+ 120)   4.862 us    |    }
+ 120)               |    irq_exit_rcu() {
+ 120)   0.250 us    |      sched_core_idle_cpu();
+ 120)   0.720 us    |    }
+ 120)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+ 120)               |      flush_work() {
+ 120)               |        __flush_work.isra.0() {
+ 120)   0.249 us    |          __cond_resched();
+ 120)   0.255 us    |          __rcu_read_lock();
+ 120)   0.257 us    |          __rcu_read_unlock();
+ 120)   1.692 us    |        }
+ 120)   2.120 us    |      }
+ 120)               |      down_write() {
+ 120)   0.212 us    |        __cond_resched();
+ 120)   0.608 us    |      }
+ 120)   3.456 us    |    }
+ 120)               |    mutex_lock() {
+ 120)   0.241 us    |      __cond_resched();
+ 120)   0.649 us    |    }
+ 120)   0.214 us    |    up_write();
+ 120)   0.232 us    |    mutex_unlock();
+ 120)               |    mutex_lock() {
+ 120)   0.215 us    |      __cond_resched();
+ 120)   0.611 us    |    }
+ 120)   0.217 us    |    kfd_process_device_data_by_id [amdgpu]();
+ 120)   0.234 us    |    kfd_bind_process_to_device [amdgpu]();
+ 120)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+ 120)               |      create_sg_table [amdgpu]() {
+ 120)               |        kmalloc_trace() {
+ 120)   0.173 us    |          __cond_resched();
+ 120)   0.184 us    |          should_failslab.constprop.0();
+ 120)   0.970 us    |        }
+ 120)               |        __kmalloc() {
+ 120)   0.220 us    |          __cond_resched();
+ 120)   0.223 us    |          should_failslab.constprop.0();
+ 120)   1.072 us    |        }
+ 120)   2.857 us    |      }
+ 120)               |      kmalloc_trace() {
+ 120)   0.230 us    |        __cond_resched();
+ 120)   0.195 us    |        should_failslab.constprop.0();
+ 120)   1.081 us    |      }
+ 120)   0.203 us    |      __mutex_init();
+ 120)   0.248 us    |      amdgpu_sync_create [amdgpu]();
+ 120)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+ 120)   0.233 us    |        amdgpu_ras_get_context [amdgpu]();
+ 120)   0.253 us    |        _raw_spin_lock();
+ 120)   0.220 us    |        _raw_spin_unlock();
+ 120)   1.653 us    |      }
+ 120)               |      amdgpu_gem_object_create [amdgpu]() {
+ 120)               |        amdgpu_bo_create_user [amdgpu]() {
+ 120)               |          amdgpu_bo_create [amdgpu]() {
+ 120)   0.613 us    |            kvmalloc_node();
+ 120)   0.495 us    |            drm_gem_private_object_init();
+ 120)   0.303 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)   9.350 us    |            amdttm_bo_init_reserved [amdttm]();
+ 120)   0.878 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+ 120)   0.257 us    |            _raw_spin_lock();
+ 120)   0.327 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.364 us    |            _raw_spin_unlock();
+ 120)   0.346 us    |            ww_mutex_unlock();
+ 120) + 15.853 us   |          }
+ 120) + 16.267 us   |        }
+ 120) + 16.870 us   |      }
+ 120)               |      drm_vma_node_allow() {
+ 120)               |        vma_node_allow() {
+ 120)               |          kmalloc_trace() {
+ 120)   0.194 us    |            __cond_resched();
+ 120)   0.191 us    |            should_failslab.constprop.0();
+ 120)   1.075 us    |          }
+ 120)   0.345 us    |          _raw_write_lock();
+ 120)   0.193 us    |          _raw_write_unlock();
+ 120)   0.220 us    |          kfree();
+ 120)   3.208 us    |        }
+ 120)   3.788 us    |      }
+ 120)               |      drm_gem_handle_create() {
+ 120)               |        mutex_lock() {
+ 120)   0.420 us    |          __cond_resched();
+ 120)   1.152 us    |        }
+ 120)               |        drm_gem_handle_create_tail() {
+ 120)   0.193 us    |          mutex_is_locked();
+ 120)   0.227 us    |          _raw_spin_lock();
+ 120)   0.197 us    |          _raw_spin_unlock();
+ 120)   0.311 us    |          mutex_unlock();
+ 120)               |          drm_vma_node_allow() {
+ 120)   0.801 us    |            vma_node_allow();
+ 120)   1.592 us    |          }
+ 120)               |          amdgpu_gem_object_open [amdgpu]() {
+ 120)   0.383 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.391 us    |            ww_mutex_lock_interruptible();
+ 120)   0.229 us    |            amdgpu_vm_bo_find [amdgpu]();
+ 120)   1.184 us    |            amdgpu_vm_bo_add [amdgpu]();
+ 120)   0.186 us    |            _raw_spin_lock();
+ 120)   0.381 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.394 us    |            _raw_spin_unlock();
+ 120)   0.208 us    |            ww_mutex_unlock();
+ 120)   5.662 us    |          }
+ 120) + 10.831 us   |        }
+ 120) + 12.494 us   |      }
+ 120)               |      mutex_lock() {
+ 120)   0.171 us    |        __cond_resched();
+ 120)   0.842 us    |      }
+ 120)   0.212 us    |      mutex_unlock();
+ 120)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+ 120)               |        ww_mutex_lock_interruptible() {
+ 120)   0.219 us    |          __cond_resched();
+ 120)   0.582 us    |        }
+ 120)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+ 120)   0.210 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.215 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)               |          amdttm_bo_validate [amdttm]() {
+ 120)   0.235 us    |            ttm_resource_compatible [amdttm]();
+ 120)   2.214 us    |            amdttm_bo_mem_space [amdttm]();
+ 120)   3.518 us    |            ttm_bo_handle_move_mem [amdttm]();
+ 120)   7.228 us    |          }
+ 120)               |          amdttm_bo_pin [amdttm]() {
+ 120)   0.316 us    |            _raw_spin_lock();
+ 120)   0.265 us    |            ttm_resource_del_bulk_move [amdttm]();
+ 120)   0.225 us    |            _raw_spin_unlock();
+ 120)   2.152 us    |          }
+ 120) + 11.320 us   |        }
+ 120)               |        amdgpu_bo_sync_wait [amdgpu]() {
+ 120)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+ 120)   0.376 us    |            amdgpu_sync_create [amdgpu]();
+ 120)   0.542 us    |            amdgpu_sync_resv [amdgpu]();
+ 120)   0.380 us    |            amdgpu_sync_wait [amdgpu]();
+ 120)   0.320 us    |            amdgpu_sync_free [amdgpu]();
+ 120)   3.100 us    |          }
+ 120)   3.724 us    |        }
+ 120)   0.442 us    |        _raw_spin_lock();
+ 120)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+ 120)   0.273 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+ 120)   1.064 us    |        }
+ 120)   0.249 us    |        _raw_spin_unlock();
+ 120)   0.269 us    |        ww_mutex_unlock();
+ 120) + 19.731 us   |      }
+ 120) + 63.290 us   |    }
+ 120)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+ 120)               |      kmalloc_trace() {
+ 120)   0.235 us    |        __cond_resched();
+ 120)   0.243 us    |        should_failslab.constprop.0();
+ 120)   1.235 us    |      }
+ 120)               |      kmem_cache_alloc() {
+ 120)   0.240 us    |        __cond_resched();
+ 120)   0.253 us    |        should_failslab.constprop.0();
+ 120)   1.267 us    |      }
+ 120)   3.504 us    |    }
+ 120)   0.264 us    |    mutex_unlock();
+ 120) + 83.391 us   |  }
+ 120)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+ 120)   0.588 us    |    irq_enter_rcu();
+ 120)               |    __sysvec_irq_work() {
+ 120)               |      __wake_up() {
+ 120)   0.157 us    |        _raw_spin_lock_irqsave();
+ 120)               |        __wake_up_common() {
+ 120)               |          autoremove_wake_function() {
+ 120)   2.856 us    |            default_wake_function();
+ 120)   3.400 us    |          }
+ 120)   4.052 us    |        }
+ 120)   0.182 us    |        _raw_spin_unlock_irqrestore();
+ 120)   5.068 us    |      }
+ 120)   5.747 us    |    }
+ 120)               |    irq_exit_rcu() {
+ 120)   0.253 us    |      sched_core_idle_cpu();
+ 120)   0.674 us    |    }
+ 120)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+ 120)               |      flush_work() {
+ 120)               |        __flush_work.isra.0() {
+ 120)   0.216 us    |          __cond_resched();
+ 120)   0.248 us    |          __rcu_read_lock();
+ 120)   0.246 us    |          __rcu_read_unlock();
+ 120)   1.645 us    |        }
+ 120)   2.071 us    |      }
+ 120)               |      down_write() {
+ 120)   0.225 us    |        __cond_resched();
+ 120)   0.627 us    |      }
+ 120)   3.690 us    |    }
+ 120)               |    mutex_lock() {
+ 120)   0.208 us    |      __cond_resched();
+ 120)   0.746 us    |    }
+ 120)   0.245 us    |    up_write();
+ 120)   0.171 us    |    mutex_unlock();
+ 120)               |    mutex_lock() {
+ 120)   0.216 us    |      __cond_resched();
+ 120)   0.626 us    |    }
+ 120)   0.230 us    |    kfd_process_device_data_by_id [amdgpu]();
+ 120)   0.251 us    |    kfd_bind_process_to_device [amdgpu]();
+ 120)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+ 120)               |      create_sg_table [amdgpu]() {
+ 120)               |        kmalloc_trace() {
+ 120)   0.203 us    |          __cond_resched();
+ 120)   0.223 us    |          should_failslab.constprop.0();
+ 120)   1.169 us    |        }
+ 120)               |        __kmalloc() {
+ 120)   0.188 us    |          __cond_resched();
+ 120)   0.211 us    |          should_failslab.constprop.0();
+ 120)   1.174 us    |        }
+ 120)   3.560 us    |      }
+ 120)               |      kmalloc_trace() {
+ 120)   0.220 us    |        __cond_resched();
+ 120)   0.168 us    |        should_failslab.constprop.0();
+ 120)   1.982 us    |      }
+ 120)   0.264 us    |      __mutex_init();
+ 120)   0.238 us    |      amdgpu_sync_create [amdgpu]();
+ 120)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+ 120)   0.423 us    |        amdgpu_ras_get_context [amdgpu]();
+ 120)   0.639 us    |        _raw_spin_lock();
+ 120)   0.206 us    |        _raw_spin_unlock();
+ 120)   2.947 us    |      }
+ 120)               |      amdgpu_gem_object_create [amdgpu]() {
+ 120)               |        amdgpu_bo_create_user [amdgpu]() {
+ 120)               |          amdgpu_bo_create [amdgpu]() {
+ 120)   0.572 us    |            kvmalloc_node();
+ 120)   0.450 us    |            drm_gem_private_object_init();
+ 120)   0.294 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+ 120) + 11.641 us   |            amdttm_bo_init_reserved [amdttm]();
+ 120)   0.374 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+ 120)   0.204 us    |            _raw_spin_lock();
+ 120)   0.343 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.219 us    |            _raw_spin_unlock();
+ 120)   0.201 us    |            ww_mutex_unlock();
+ 120) + 16.789 us   |          }
+ 120) + 17.278 us   |        }
+ 120) + 17.758 us   |      }
+ 120)               |      drm_vma_node_allow() {
+ 120)               |        vma_node_allow() {
+ 120)               |          kmalloc_trace() {
+ 120)   0.215 us    |            __cond_resched();
+ 120)   0.207 us    |            should_failslab.constprop.0();
+ 120)   1.124 us    |          }
+ 120)   0.202 us    |          _raw_write_lock();
+ 120)   0.204 us    |          _raw_write_unlock();
+ 120)   0.227 us    |          kfree();
+ 120)   2.671 us    |        }
+ 120)   3.160 us    |      }
+ 120)               |      drm_gem_handle_create() {
+ 120)               |        mutex_lock() {
+ 120)   0.189 us    |          __cond_resched();
+ 120)   0.776 us    |        }
+ 120)               |        drm_gem_handle_create_tail() {
+ 120)   0.206 us    |          mutex_is_locked();
+ 120)   0.420 us    |          _raw_spin_lock();
+ 120)   0.202 us    |          _raw_spin_unlock();
+ 120)   0.218 us    |          mutex_unlock();
+ 120)               |          drm_vma_node_allow() {
+ 120)   0.785 us    |            vma_node_allow();
+ 120)   1.114 us    |          }
+ 120)               |          amdgpu_gem_object_open [amdgpu]() {
+ 120)   0.205 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.314 us    |            ww_mutex_lock_interruptible();
+ 120)   0.167 us    |            amdgpu_vm_bo_find [amdgpu]();
+ 120)   1.453 us    |            amdgpu_vm_bo_add [amdgpu]();
+ 120)   0.231 us    |            _raw_spin_lock();
+ 120)   0.302 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.194 us    |            _raw_spin_unlock();
+ 120)   0.217 us    |            ww_mutex_unlock();
+ 120)   4.668 us    |          }
+ 120)   9.752 us    |        }
+ 120) + 11.258 us   |      }
+ 120)               |      mutex_lock() {
+ 120)   0.159 us    |        __cond_resched();
+ 120)   0.655 us    |      }
+ 120)   0.186 us    |      mutex_unlock();
+ 120)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+ 120)               |        ww_mutex_lock_interruptible() {
+ 120)   0.223 us    |          __cond_resched();
+ 120)   0.547 us    |        }
+ 120)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+ 120)   0.180 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.246 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)               |          amdttm_bo_validate [amdttm]() {
+ 120)   0.205 us    |            ttm_resource_compatible [amdttm]();
+ 120)   1.921 us    |            amdttm_bo_mem_space [amdttm]();
+ 120)   5.004 us    |            ttm_bo_handle_move_mem [amdttm]();
+ 120)   7.911 us    |          }
+ 120)               |          amdttm_bo_pin [amdttm]() {
+ 120)   0.230 us    |            _raw_spin_lock();
+ 120)   0.221 us    |            ttm_resource_del_bulk_move [amdttm]();
+ 120)   0.218 us    |            _raw_spin_unlock();
+ 120)   1.353 us    |          }
+ 120) + 11.448 us   |        }
+ 120)               |        amdgpu_bo_sync_wait [amdgpu]() {
+ 120)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+ 120)   0.228 us    |            amdgpu_sync_create [amdgpu]();
+ 120)   0.486 us    |            amdgpu_sync_resv [amdgpu]();
+ 120)   0.340 us    |            amdgpu_sync_wait [amdgpu]();
+ 120)   0.272 us    |            amdgpu_sync_free [amdgpu]();
+ 120)   2.269 us    |          }
+ 120)   2.616 us    |        }
+ 120)   0.194 us    |        _raw_spin_lock();
+ 120)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+ 120)   0.280 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+ 120)   0.939 us    |        }
+ 120)   0.258 us    |        _raw_spin_unlock();
+ 120)   0.204 us    |        ww_mutex_unlock();
+ 120) + 17.668 us   |      }
+ 120) + 63.788 us   |    }
+ 120)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+ 120)               |      kmalloc_trace() {
+ 120)   0.209 us    |        __cond_resched();
+ 120)   0.218 us    |        should_failslab.constprop.0();
+ 120)   1.273 us    |      }
+ 120)               |      kmem_cache_alloc() {
+ 120)   0.216 us    |        __cond_resched();
+ 120)   0.248 us    |        should_failslab.constprop.0();
+ 120)   1.490 us    |      }
+ 120)   4.104 us    |    }
+ 120)   0.273 us    |    mutex_unlock();
+ 120) + 88.349 us   |  }
+ 120)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+ 120)   0.275 us    |    irq_enter_rcu();
+ 120)               |    __sysvec_irq_work() {
+ 120)               |      __wake_up() {
+ 120)   0.171 us    |        _raw_spin_lock_irqsave();
+ 120)               |        __wake_up_common() {
+ 120)               |          autoremove_wake_function() {
+ 120)   2.279 us    |            default_wake_function();
+ 120)   2.752 us    |          }
+ 120)   3.278 us    |        }
+ 120)   0.213 us    |        _raw_spin_unlock_irqrestore();
+ 120)   4.345 us    |      }
+ 120)   4.904 us    |    }
+ 120)               |    irq_exit_rcu() {
+ 120)   0.272 us    |      sched_core_idle_cpu();
+ 120)   0.767 us    |    }
+ 120)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+ 120)               |      flush_work() {
+ 120)               |        __flush_work.isra.0() {
+ 120)   0.262 us    |          __cond_resched();
+ 120)   0.239 us    |          __rcu_read_lock();
+ 120)   0.255 us    |          __rcu_read_unlock();
+ 120)   1.810 us    |        }
+ 120)   2.264 us    |      }
+ 120)               |      down_write() {
+ 120)   0.244 us    |        __cond_resched();
+ 120)   0.675 us    |      }
+ 120)   3.602 us    |    }
+ 120)               |    mutex_lock() {
+ 120)   0.205 us    |      __cond_resched();
+ 120)   0.743 us    |    }
+ 120)   0.176 us    |    up_write();
+ 120)   0.236 us    |    mutex_unlock();
+ 120)               |    mutex_lock() {
+ 120)   0.197 us    |      __cond_resched();
+ 120)   1.094 us    |    }
+ 120)   0.279 us    |    kfd_process_device_data_by_id [amdgpu]();
+ 120)   0.216 us    |    kfd_bind_process_to_device [amdgpu]();
+ 120)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+ 120)               |      create_sg_table [amdgpu]() {
+ 120)               |        kmalloc_trace() {
+ 120)   0.210 us    |          __cond_resched();
+ 120)   0.166 us    |          should_failslab.constprop.0();
+ 120)   1.374 us    |        }
+ 120)               |        __kmalloc() {
+ 120)   0.304 us    |          __cond_resched();
+ 120)   0.159 us    |          should_failslab.constprop.0();
+ 120)   1.139 us    |        }
+ 120)   3.481 us    |      }
+ 120)               |      kmalloc_trace() {
+ 120)   0.207 us    |        __cond_resched();
+ 120)   0.239 us    |        should_failslab.constprop.0();
+ 120)   1.184 us    |      }
+ 120)   0.159 us    |      __mutex_init();
+ 120)   0.257 us    |      amdgpu_sync_create [amdgpu]();
+ 120)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+ 120)   0.258 us    |        amdgpu_ras_get_context [amdgpu]();
+ 120)   0.288 us    |        _raw_spin_lock();
+ 120)   0.250 us    |        _raw_spin_unlock();
+ 120)   2.018 us    |      }
+ 120)               |      amdgpu_gem_object_create [amdgpu]() {
+ 120)               |        amdgpu_bo_create_user [amdgpu]() {
+ 120)               |          amdgpu_bo_create [amdgpu]() {
+ 120)   0.580 us    |            kvmalloc_node();
+ 120)   0.469 us    |            drm_gem_private_object_init();
+ 120)   0.272 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)   9.648 us    |            amdttm_bo_init_reserved [amdttm]();
+ 120)   0.417 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+ 120)   0.257 us    |            _raw_spin_lock();
+ 120)   0.316 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.216 us    |            _raw_spin_unlock();
+ 120)   0.254 us    |            ww_mutex_unlock();
+ 120) + 14.964 us   |          }
+ 120) + 15.405 us   |        }
+ 120) + 15.881 us   |      }
+ 120)               |      drm_vma_node_allow() {
+ 120)               |        vma_node_allow() {
+ 120)               |          kmalloc_trace() {
+ 120)   0.207 us    |            __cond_resched();
+ 120)   0.213 us    |            should_failslab.constprop.0();
+ 120)   0.985 us    |          }
+ 120)   0.212 us    |          _raw_write_lock();
+ 120)   0.217 us    |          _raw_write_unlock();
+ 120)   0.234 us    |          kfree();
+ 120)   2.524 us    |        }
+ 120)   2.909 us    |      }
+ 120)               |      drm_gem_handle_create() {
+ 120)               |        mutex_lock() {
+ 120)   0.210 us    |          __cond_resched();
+ 120)   0.617 us    |        }
+ 120)               |        drm_gem_handle_create_tail() {
+ 120)   0.200 us    |          mutex_is_locked();
+ 120)   0.409 us    |          _raw_spin_lock();
+ 120)   0.333 us    |          _raw_spin_unlock();
+ 120)   0.198 us    |          mutex_unlock();
+ 120)               |          drm_vma_node_allow() {
+ 120)   0.822 us    |            vma_node_allow();
+ 120)   1.367 us    |          }
+ 120)               |          amdgpu_gem_object_open [amdgpu]() {
+ 120)   0.318 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.295 us    |            ww_mutex_lock_interruptible();
+ 120)   0.189 us    |            amdgpu_vm_bo_find [amdgpu]();
+ 120)   1.191 us    |            amdgpu_vm_bo_add [amdgpu]();
+ 120)   0.215 us    |            _raw_spin_lock();
+ 120)   0.648 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+ 120)   0.211 us    |            _raw_spin_unlock();
+ 120)   0.232 us    |            ww_mutex_unlock();
+ 120)   5.768 us    |          }
+ 120) + 10.968 us   |        }
+ 120) + 12.448 us   |      }
+ 120)               |      mutex_lock() {
+ 120)   0.223 us    |        __cond_resched();
+ 120)   0.783 us    |      }
+ 120)   0.188 us    |      mutex_unlock();
+ 120)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+ 120)               |        ww_mutex_lock_interruptible() {
+ 120)   0.208 us    |          __cond_resched();
+ 120)   0.556 us    |        }
+ 120)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+ 120)   0.225 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+ 120)   0.235 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+ 120)               |          amdttm_bo_validate [amdttm]() {
+ 120)   0.335 us    |            ttm_resource_compatible [amdttm]();
+ 120)   1.808 us    |            amdttm_bo_mem_space [amdttm]();
+ 120)   3.850 us    |            ttm_bo_handle_move_mem [amdttm]();
+ 120)   7.012 us    |          }
+ 120)               |          amdttm_bo_pin [amdttm]() {
+ 120)   0.199 us    |            _raw_spin_lock();
+ 120)   0.233 us    |            ttm_resource_del_bulk_move [amdttm]();
+ 120)   0.349 us    |            _raw_spin_unlock();
+ 120)   1.917 us    |          }
+ 120) + 10.929 us   |        }
+ 120)               |        amdgpu_bo_sync_wait [amdgpu]() {
+ 120)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+ 120)   0.268 us    |            amdgpu_sync_create [amdgpu]();
+ 120)   0.529 us    |            amdgpu_sync_resv [amdgpu]();
+ 120)   0.407 us    |            amdgpu_sync_wait [amdgpu]();
+ 120)   0.295 us    |            amdgpu_sync_free [amdgpu]();
+ 120)   2.813 us    |          }
+ 120)   3.302 us    |        }
+ 120)   0.262 us    |        _raw_spin_lock();
+ 120)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+ 120)   0.316 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+ 120)   0.976 us    |        }
+ 120)   0.230 us    |        _raw_spin_unlock();
+ 120)   0.259 us    |        ww_mutex_unlock();
+ 120) + 18.220 us   |      }
+ 120) + 60.913 us   |    }
+ 120)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+ 120)               |      kmalloc_trace() {
+ 120)   0.233 us    |        __cond_resched();
+ 120)   0.224 us    |        should_failslab.constprop.0();
+ 120)   1.188 us    |      }
+ 120)               |      kmem_cache_alloc() {
+ 120)   0.236 us    |        __cond_resched();
+ 120)   0.254 us    |        should_failslab.constprop.0();
+ 120)   1.200 us    |      }
+ 120)   3.328 us    |    }
+ 120)   0.241 us    |    mutex_unlock();
+ 120) + 82.099 us   |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)   0.328 us    |    irq_enter_rcu();
+  56)               |    __sysvec_irq_work() {
+  56)               |      __wake_up() {
+  56)   0.160 us    |        _raw_spin_lock_irqsave();
+  56)               |        __wake_up_common() {
+  56)               |          autoremove_wake_function() {
+  56)   4.231 us    |            default_wake_function();
+  56)   4.852 us    |          }
+  56)   5.566 us    |        }
+  56)   0.142 us    |        _raw_spin_unlock_irqrestore();
+  56)   6.676 us    |      }
+  56)   7.308 us    |    }
+  56)               |    irq_exit_rcu() {
+  56)   0.135 us    |      sched_core_idle_cpu();
+  56)   0.426 us    |    }
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.145 us    |          __cond_resched();
+  56)   0.131 us    |          __rcu_read_lock();
+  56)   0.200 us    |          _raw_spin_lock_irq();
+  56)   0.138 us    |          _raw_spin_unlock_irq();
+  56)   0.132 us    |          __rcu_read_unlock();
+  56)   1.611 us    |        }
+  56)   1.866 us    |      }
+  56)               |      down_write() {
+  56)   0.137 us    |        __cond_resched();
+  56)   0.390 us    |      }
+  56)   2.651 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.138 us    |      __cond_resched();
+  56)   0.389 us    |    }
+  56)   0.145 us    |    up_write();
+  56)   0.142 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.132 us    |      __cond_resched();
+  56)   0.380 us    |    }
+  56)   0.135 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.139 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      create_sg_table [amdgpu]() {
+  56)               |        kmalloc_trace() {
+  56)   0.133 us    |          __cond_resched();
+  56)   0.131 us    |          should_failslab.constprop.0();
+  56)   0.901 us    |        }
+  56)               |        __kmalloc() {
+  56)   0.134 us    |          __cond_resched();
+  56)   0.135 us    |          should_failslab.constprop.0();
+  56)   0.791 us    |        }
+  56)   2.220 us    |      }
+  56)               |      kmalloc_trace() {
+  56)   0.135 us    |        __cond_resched();
+  56)   0.135 us    |        should_failslab.constprop.0();
+  56)   0.874 us    |      }
+  56)   0.154 us    |      __mutex_init();
+  56)   0.139 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.162 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.176 us    |        _raw_spin_lock();
+  56)   0.133 us    |        _raw_spin_unlock();
+  56)   1.310 us    |      }
+  56)               |      amdgpu_gem_object_create [amdgpu]() {
+  56)               |        amdgpu_bo_create_user [amdgpu]() {
+  56)               |          amdgpu_bo_create [amdgpu]() {
+  56)   0.424 us    |            kvmalloc_node();
+  56)   0.300 us    |            drm_gem_private_object_init();
+  56)   0.192 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  56)   7.530 us    |            amdttm_bo_init_reserved [amdttm]();
+  56)   0.288 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  56)   0.166 us    |            _raw_spin_lock();
+  56)   0.215 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.150 us    |            _raw_spin_unlock();
+  56)   0.548 us    |            ww_mutex_unlock();
+  56) + 11.653 us   |          }
+  56) + 11.897 us   |        }
+  56) + 12.204 us   |      }
+  56)               |      drm_vma_node_allow() {
+  56)               |        vma_node_allow() {
+  56)               |          kmalloc_trace() {
+  56)   0.135 us    |            __cond_resched();
+  56)   0.136 us    |            should_failslab.constprop.0();
+  56)   0.836 us    |          }
+  56)   0.144 us    |          _raw_write_lock();
+  56)   0.135 us    |          _raw_write_unlock();
+  56)   0.139 us    |          kfree();
+  56)   1.856 us    |        }
+  56)   2.155 us    |      }
+  56)               |      drm_gem_handle_create() {
+  56)               |        mutex_lock() {
+  56)   0.138 us    |          __cond_resched();
+  56)   0.491 us    |        }
+  56)               |        drm_gem_handle_create_tail() {
+  56)   0.137 us    |          mutex_is_locked();
+  56)   0.163 us    |          _raw_spin_lock();
+  56)   0.136 us    |          _raw_spin_unlock();
+  56)   0.139 us    |          mutex_unlock();
+  56)               |          drm_vma_node_allow() {
+  56)   0.647 us    |            vma_node_allow();
+  56)   1.091 us    |          }
+  56)               |          amdgpu_gem_object_open [amdgpu]() {
+  56)   0.155 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.326 us    |            ww_mutex_lock_interruptible();
+  56)   0.154 us    |            amdgpu_vm_bo_find [amdgpu]();
+  56)   1.346 us    |            amdgpu_vm_bo_add [amdgpu]();
+  56)   0.149 us    |            _raw_spin_lock();
+  56)   0.201 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.145 us    |            _raw_spin_unlock();
+  56)   0.151 us    |            ww_mutex_unlock();
+  56)   3.817 us    |          }
+  56)   7.171 us    |        }
+  56)   8.025 us    |      }
+  56)               |      mutex_lock() {
+  56)   0.134 us    |        __cond_resched();
+  56)   0.493 us    |      }
+  56)   0.170 us    |      mutex_unlock();
+  56)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+  56)               |        ww_mutex_lock_interruptible() {
+  56)   0.133 us    |          __cond_resched();
+  56)   0.379 us    |        }
+  56)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+  56)   0.129 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.159 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+  56)               |          amdttm_bo_validate [amdttm]() {
+  56)   0.149 us    |            ttm_resource_compatible [amdttm]();
+  56)   1.254 us    |            amdttm_bo_mem_space [amdttm]();
+  56)   2.919 us    |            ttm_bo_handle_move_mem [amdttm]();
+  56)   4.810 us    |          }
+  56)               |          amdttm_bo_pin [amdttm]() {
+  56)   0.163 us    |            _raw_spin_lock();
+  56)   0.152 us    |            ttm_resource_del_bulk_move [amdttm]();
+  56)   0.149 us    |            _raw_spin_unlock();
+  56)   0.969 us    |          }
+  56)   6.784 us    |        }
+  56)               |        amdgpu_bo_sync_wait [amdgpu]() {
+  56)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+  56)   0.143 us    |            amdgpu_sync_create [amdgpu]();
+  56)   0.361 us    |            amdgpu_sync_resv [amdgpu]();
+  56)   0.253 us    |            amdgpu_sync_wait [amdgpu]();
+  56)   0.177 us    |            amdgpu_sync_free [amdgpu]();
+  56)   1.566 us    |          }
+  56)   1.838 us    |        }
+  56)   0.146 us    |        _raw_spin_lock();
+  56)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+  56)   0.488 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+  56)   1.020 us    |        }
+  56)   0.137 us    |        _raw_spin_unlock();
+  56)   0.141 us    |        ww_mutex_unlock();
+  56) + 11.436 us   |      }
+  56) + 41.044 us   |    }
+  56)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.137 us    |        __cond_resched();
+  56)   0.133 us    |        should_failslab.constprop.0();
+  56)   0.760 us    |      }
+  56)               |      kmem_cache_alloc() {
+  56)   0.136 us    |        __cond_resched();
+  56)   0.136 us    |        should_failslab.constprop.0();
+  56)   0.850 us    |      }
+  56)   2.460 us    |    }
+  56)   0.144 us    |    mutex_unlock();
+  56) + 60.132 us   |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)   0.282 us    |    irq_enter_rcu();
+  56)               |    __sysvec_irq_work() {
+  56)               |      __wake_up() {
+  56)   0.254 us    |        _raw_spin_lock_irqsave();
+  56)               |        __wake_up_common() {
+  56)               |          autoremove_wake_function() {
+  56)   2.528 us    |            default_wake_function();
+  56)   2.817 us    |          }
+  56)   3.266 us    |        }
+  56)   0.165 us    |        _raw_spin_unlock_irqrestore();
+  56)   4.191 us    |      }
+  56)   4.681 us    |    }
+  56)               |    irq_exit_rcu() {
+  56)   0.149 us    |      sched_core_idle_cpu();
+  56)   0.434 us    |    }
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.149 us    |          __cond_resched();
+  56)   0.149 us    |          __rcu_read_lock();
+  56)   0.156 us    |          _raw_spin_lock_irq();
+  56)   0.154 us    |          _raw_spin_unlock_irq();
+  56)   0.135 us    |          __rcu_read_unlock();
+  56)   1.638 us    |        }
+  56)   1.909 us    |      }
+  56)               |      down_write() {
+  56)   0.148 us    |        __cond_resched();
+  56)   0.401 us    |      }
+  56)   2.760 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.129 us    |      __cond_resched();
+  56)   0.390 us    |    }
+  56)   0.140 us    |    up_write();
+  56)   0.163 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.133 us    |      __cond_resched();
+  56)   0.371 us    |    }
+  56)   0.163 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.135 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      create_sg_table [amdgpu]() {
+  56)               |        kmalloc_trace() {
+  56)   0.155 us    |          __cond_resched();
+  56)   0.137 us    |          should_failslab.constprop.0();
+  56)   0.732 us    |        }
+  56)               |        __kmalloc() {
+  56)   0.149 us    |          __cond_resched();
+  56)   0.132 us    |          should_failslab.constprop.0();
+  56)   0.746 us    |        }
+  56)   2.015 us    |      }
+  56)               |      kmalloc_trace() {
+  56)   0.130 us    |        __cond_resched();
+  56)   0.132 us    |        should_failslab.constprop.0();
+  56)   0.731 us    |      }
+  56)   0.133 us    |      __mutex_init();
+  56)   0.139 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.185 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.173 us    |        _raw_spin_lock();
+  56)   0.133 us    |        _raw_spin_unlock();
+  56)   1.163 us    |      }
+  56)               |      amdgpu_gem_object_create [amdgpu]() {
+  56)               |        amdgpu_bo_create_user [amdgpu]() {
+  56)               |          amdgpu_bo_create [amdgpu]() {
+  56)   0.394 us    |            kvmalloc_node();
+  56)   0.293 us    |            drm_gem_private_object_init();
+  56)   0.188 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  56)   7.211 us    |            amdttm_bo_init_reserved [amdttm]();
+  56)   0.277 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  56)   0.170 us    |            _raw_spin_lock();
+  56)   0.265 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.169 us    |            _raw_spin_unlock();
+  56)   0.153 us    |            ww_mutex_unlock();
+  56) + 11.091 us   |          }
+  56) + 11.400 us   |        }
+  56) + 11.742 us   |      }
+  56)               |      drm_vma_node_allow() {
+  56)               |        vma_node_allow() {
+  56)               |          kmalloc_trace() {
+  56)   0.157 us    |            __cond_resched();
+  56)   0.133 us    |            should_failslab.constprop.0();
+  56)   0.725 us    |          }
+  56)   0.142 us    |          _raw_write_lock();
+  56)   0.134 us    |          _raw_write_unlock();
+  56)   0.142 us    |          kfree();
+  56)   1.783 us    |        }
+  56)   2.047 us    |      }
+  56)               |      drm_gem_handle_create() {
+  56)               |        mutex_lock() {
+  56)   0.133 us    |          __cond_resched();
+  56)   0.476 us    |        }
+  56)               |        drm_gem_handle_create_tail() {
+  56)   0.136 us    |          mutex_is_locked();
+  56)   0.166 us    |          _raw_spin_lock();
+  56)   0.154 us    |          _raw_spin_unlock();
+  56)   0.140 us    |          mutex_unlock();
+  56)               |          drm_vma_node_allow() {
+  56)   0.549 us    |            vma_node_allow();
+  56)   0.810 us    |          }
+  56)               |          amdgpu_gem_object_open [amdgpu]() {
+  56)   0.178 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.206 us    |            ww_mutex_lock_interruptible();
+  56)   0.177 us    |            amdgpu_vm_bo_find [amdgpu]();
+  56)   0.976 us    |            amdgpu_vm_bo_add [amdgpu]();
+  56)   0.156 us    |            _raw_spin_lock();
+  56)   0.201 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.132 us    |            _raw_spin_unlock();
+  56)   0.142 us    |            ww_mutex_unlock();
+  56)   3.386 us    |          }
+  56)   6.131 us    |        }
+  56)   6.971 us    |      }
+  56)               |      mutex_lock() {
+  56)   0.149 us    |        __cond_resched();
+  56)   0.528 us    |      }
+  56)   0.283 us    |      mutex_unlock();
+  56)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+  56)               |        ww_mutex_lock_interruptible() {
+  56)   0.132 us    |          __cond_resched();
+  56)   0.399 us    |        }
+  56)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+  56)   0.135 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.184 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+  56)               |          amdttm_bo_validate [amdttm]() {
+  56)   0.150 us    |            ttm_resource_compatible [amdttm]();
+  56)   1.344 us    |            amdttm_bo_mem_space [amdttm]();
+  56)   2.939 us    |            ttm_bo_handle_move_mem [amdttm]();
+  56)   5.373 us    |          }
+  56)               |          amdttm_bo_pin [amdttm]() {
+  56)   0.178 us    |            _raw_spin_lock();
+  56)   0.326 us    |            ttm_resource_del_bulk_move [amdttm]();
+  56)   0.170 us    |            _raw_spin_unlock();
+  56)   1.345 us    |          }
+  56)   7.873 us    |        }
+  56)               |        amdgpu_bo_sync_wait [amdgpu]() {
+  56)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+  56)   0.143 us    |            amdgpu_sync_create [amdgpu]();
+  56)   0.343 us    |            amdgpu_sync_resv [amdgpu]();
+  56)   0.272 us    |            amdgpu_sync_wait [amdgpu]();
+  56)   0.161 us    |            amdgpu_sync_free [amdgpu]();
+  56)   1.623 us    |          }
+  56)   1.885 us    |        }
+  56)   0.140 us    |        _raw_spin_lock();
+  56)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+  56)   0.146 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+  56)   0.637 us    |        }
+  56)   0.132 us    |        _raw_spin_unlock();
+  56)   0.143 us    |        ww_mutex_unlock();
+  56) + 12.221 us   |      }
+  56) + 40.287 us   |    }
+  56)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.138 us    |        __cond_resched();
+  56)   0.133 us    |        should_failslab.constprop.0();
+  56)   0.711 us    |      }
+  56)               |      kmem_cache_alloc() {
+  56)   0.212 us    |        __cond_resched();
+  56)   0.140 us    |        should_failslab.constprop.0();
+  56)   0.807 us    |      }
+  56)   2.171 us    |    }
+  56)   0.143 us    |    mutex_unlock();
+  56) + 56.144 us   |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.168 us    |          __cond_resched();
+  56)   0.143 us    |          __rcu_read_lock();
+  56)   0.151 us    |          _raw_spin_lock_irq();
+  56)   0.147 us    |          _raw_spin_unlock_irq();
+  56)   0.144 us    |          __rcu_read_unlock();
+  56)   1.627 us    |        }
+  56)   1.958 us    |      }
+  56)               |      down_write() {
+  56)   0.139 us    |        __cond_resched();
+  56)   0.390 us    |      }
+  56)   2.752 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.135 us    |      __cond_resched();
+  56)   0.684 us    |    }
+  56)   0.140 us    |    up_write();
+  56)   0.138 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.132 us    |      __cond_resched();
+  56)   0.376 us    |    }
+  56)   0.138 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.135 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    down_read() {
+  56)   0.132 us    |      __cond_resched();
+  56)   0.383 us    |    }
+  56)               |    find_vma() {
+  56)   0.135 us    |      __rcu_read_lock();
+  56)   0.131 us    |      __rcu_read_unlock();
+  56)   0.749 us    |    }
+  56)   0.143 us    |    up_read();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.243 us    |        __cond_resched();
+  56)   0.512 us    |        should_failslab.constprop.0();
+  56)   2.885 us    |      }
+  56)   0.284 us    |      __mutex_init();
+  56)   0.139 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.133 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.300 us    |        _raw_spin_lock();
+  56)   0.272 us    |        _raw_spin_unlock();
+  56)   1.608 us    |      }
+  56)               |      amdgpu_gem_object_create [amdgpu]() {
+  56)               |        amdgpu_bo_create_user [amdgpu]() {
+  56)               |          amdgpu_bo_create [amdgpu]() {
+  56)   0.317 us    |            kvmalloc_node();
+  56)   0.248 us    |            drm_gem_private_object_init();
+  56)   0.144 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  56)   5.054 us    |            amdttm_bo_init_reserved [amdttm]();
+  56)   0.252 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  56)   0.158 us    |            _raw_spin_lock();
+  56)   0.209 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.151 us    |            _raw_spin_unlock();
+  56)   0.157 us    |            ww_mutex_unlock();
+  56)   8.367 us    |          }
+  56)   8.604 us    |        }
+  56)   8.873 us    |      }
+  56)               |      drm_vma_node_allow() {
+  56)               |        vma_node_allow() {
+  56)               |          kmalloc_trace() {
+  56)   0.139 us    |            __cond_resched();
+  56)   0.146 us    |            should_failslab.constprop.0();
+  56)   0.701 us    |          }
+  56)   0.142 us    |          _raw_write_lock();
+  56)   0.137 us    |          _raw_write_unlock();
+  56)   0.135 us    |          kfree();
+  56)   1.715 us    |        }
+  56)   1.959 us    |      }
+  56)               |      drm_gem_handle_create() {
+  56)               |        mutex_lock() {
+  56)   0.135 us    |          __cond_resched();
+  56)   0.378 us    |        }
+  56)               |        drm_gem_handle_create_tail() {
+  56)   0.130 us    |          mutex_is_locked();
+  56)   0.146 us    |          _raw_spin_lock();
+  56)   0.135 us    |          _raw_spin_unlock();
+  56)   0.138 us    |          mutex_unlock();
+  56)               |          drm_vma_node_allow() {
+  56)   0.510 us    |            vma_node_allow();
+  56)   0.745 us    |          }
+  56)               |          amdgpu_gem_object_open [amdgpu]() {
+  56)   0.135 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.205 us    |            ww_mutex_lock_interruptible();
+  56)   0.136 us    |            amdgpu_vm_bo_find [amdgpu]();
+  56)   0.723 us    |            amdgpu_vm_bo_add [amdgpu]();
+  56)   0.138 us    |            _raw_spin_lock();
+  56)   0.181 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.129 us    |            _raw_spin_unlock();
+  56)   0.140 us    |            ww_mutex_unlock();
+  56)   2.860 us    |          }
+  56)   5.093 us    |        }
+  56)   5.844 us    |      }
+  56)               |      mutex_lock() {
+  56)   0.133 us    |        __cond_resched();
+  56)   0.397 us    |      }
+  56)   0.156 us    |      mutex_unlock();
+  56)               |      mutex_lock() {
+  56)   0.135 us    |        __cond_resched();
+  56)   0.392 us    |      }
+  56)   0.168 us    |      amdgpu_ttm_tt_set_userptr [amdgpu]();
+  56)               |      amdgpu_hmm_register [amdgpu]() {
+  56)               |        mmu_interval_notifier_insert() {
+  56)               |          __mmu_interval_notifier_insert() {
+  56)   0.140 us    |            _raw_spin_lock();
+  56)   0.137 us    |            _raw_spin_unlock();
+  56)   0.946 us    |          }
+  56)   1.434 us    |        }
+  56)   1.880 us    |      }
+  56)               |      amdgpu_ttm_tt_get_user_pages [amdgpu]() {
+  56)               |        down_read() {
+  56)   0.130 us    |          __cond_resched();
+  56)   0.375 us    |        }
+  56)   0.133 us    |        __rcu_read_lock();
+  56)   0.139 us    |        __rcu_read_unlock();
+  56)               |        amdgpu_hmm_range_get_pages [amdgpu]() {
+  56)               |          kmalloc_trace() {
+  56)   0.133 us    |            __cond_resched();
+  56)   0.133 us    |            should_failslab.constprop.0();
+  56)   0.645 us    |          }
+  56)               |          kvmalloc_node() {
+  56)   0.482 us    |            __kmalloc_node();
+  56)   0.737 us    |          }
+  56)               |          mmu_interval_read_begin() {
+  56)   0.142 us    |            _raw_spin_lock();
+  56)   0.130 us    |            _raw_spin_unlock();
+  56)   0.649 us    |          }
+  56)               |          hmm_range_fault() {
+  56) + 11.546 us   |            walk_page_range();
+  56)   1.653 us    |            walk_page_range();
+  56) + 13.666 us   |          }
+  56) + 16.347 us   |        }
+  56)   0.173 us    |        up_read();
+  56)               |        mmput() {
+  56)   0.155 us    |          __cond_resched();
+  56)   0.427 us    |        }
+  56) + 18.657 us   |      }
+  56)               |      ww_mutex_lock() {
+  56)   0.137 us    |        __cond_resched();
+  56)   0.407 us    |      }
+  56)   0.155 us    |      amdgpu_bo_placement_from_domain [amdgpu]();
+  56)               |      amdttm_bo_validate [amdttm]() {
+  56)   0.140 us    |        ttm_resource_compatible [amdttm]();
+  56)               |        amdttm_bo_mem_space [amdttm]() {
+  56)   0.151 us    |          amddma_resv_reserve_fences [amdkcl]();
+  56)               |          amdttm_resource_alloc [amdttm]() {
+  56)   0.617 us    |            amdgpu_preempt_mgr_new [amdgpu]();
+  56)   0.140 us    |            _raw_spin_lock();
+  56)   0.132 us    |            ttm_resource_add_bulk_move [amdttm]();
+  56)   0.131 us    |            _raw_spin_unlock();
+  56)   1.626 us    |          }
+  56)               |          ttm_bo_add_move_fence.constprop.0 [amdttm]() {
+  56)   0.140 us    |            _raw_spin_lock();
+  56)   0.129 us    |            _raw_spin_unlock();
+  56)   0.639 us    |          }
+  56)   2.916 us    |        }
+  56)               |        ttm_bo_handle_move_mem [amdttm]() {
+  56)               |          amdttm_bo_unmap_virtual [amdttm]() {
+  56)   0.413 us    |            unmap_mapping_range();
+  56)   0.158 us    |            ttm_mem_io_free [amdttm]();
+  56)   0.939 us    |          }
+  56)   0.133 us    |          amdttm_tt_create [amdttm]();
+  56)               |          amdttm_tt_populate [amdttm]() {
+  56)   0.534 us    |            amdgpu_ttm_tt_populate [amdgpu]();
+  56)   0.879 us    |          }
+  56)   0.134 us    |          amddma_resv_reserve_fences [amdkcl]();
+  56)               |          amdgpu_bo_move [amdgpu]() {
+  56)   0.294 us    |            __kmalloc();
+  56)   6.529 us    |            dma_map_sgtable();
+  56)   0.215 us    |            drm_prime_sg_to_dma_addr_array();
+  56)   0.366 us    |            amdgpu_bo_move_notify [amdgpu]();
+  56)   0.636 us    |            amdttm_resource_free [amdttm]();
+  56)   9.167 us    |          }
+  56) + 12.024 us   |        }
+  56) + 15.578 us   |      }
+  56)   0.154 us    |      _raw_spin_lock();
+  56)               |      amdttm_bo_move_to_lru_tail [amdttm]() {
+  56)   0.154 us    |        ttm_resource_move_to_lru_tail [amdttm]();
+  56)   0.403 us    |      }
+  56)   0.143 us    |      _raw_spin_unlock();
+  56)   0.137 us    |      ww_mutex_unlock();
+  56)               |      amdgpu_ttm_tt_get_user_pages_done [amdgpu]() {
+  56)   0.189 us    |        ___drm_dbg();
+  56)               |        amdgpu_hmm_range_get_pages_done [amdgpu]() {
+  56)               |          kvfree() {
+  56)   0.132 us    |            is_vmalloc_addr();
+  56)   0.283 us    |            kfree();
+  56)   0.771 us    |          }
+  56)   0.176 us    |          kfree();
+  56)   1.315 us    |        }
+  56)   1.889 us    |      }
+  56)   0.144 us    |      mutex_unlock();
+  56) + 66.219 us   |    }
+  56)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.135 us    |        __cond_resched();
+  56)   0.134 us    |        should_failslab.constprop.0();
+  56)   0.657 us    |      }
+  56)   1.240 us    |    }
+  56)   0.142 us    |    mutex_unlock();
+  56) + 75.405 us   |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)   0.219 us    |    irq_enter_rcu();
+  56)               |    __sysvec_irq_work() {
+  56)               |      __wake_up() {
+  56)   0.162 us    |        _raw_spin_lock_irqsave();
+  56)               |        __wake_up_common() {
+  56)               |          autoremove_wake_function() {
+  56)   2.099 us    |            default_wake_function();
+  56)   2.387 us    |          }
+  56)   2.835 us    |        }
+  56)   0.129 us    |        _raw_spin_unlock_irqrestore();
+  56)   3.784 us    |      }
+  56)   4.239 us    |    }
+  56)               |    irq_exit_rcu() {
+  56)   0.147 us    |      sched_core_idle_cpu();
+  56)   0.415 us    |    }
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.158 us    |          __cond_resched();
+  56)   0.130 us    |          __rcu_read_lock();
+  56)   0.202 us    |          _raw_spin_lock_irq();
+  56)   0.155 us    |          _raw_spin_unlock_irq();
+  56)   0.139 us    |          __rcu_read_unlock();
+  56)   1.547 us    |        }
+  56)   1.808 us    |      }
+  56)               |      down_write() {
+  56)   0.130 us    |        __cond_resched();
+  56)   0.382 us    |      }
+  56)   2.631 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.131 us    |      __cond_resched();
+  56)   0.451 us    |    }
+  56)   0.142 us    |    up_write();
+  56)   0.137 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.132 us    |      __cond_resched();
+  56)   0.374 us    |    }
+  56)   0.140 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.133 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      create_sg_table [amdgpu]() {
+  56)               |        kmalloc_trace() {
+  56)   0.132 us    |          __cond_resched();
+  56)   0.131 us    |          should_failslab.constprop.0();
+  56)   0.691 us    |        }
+  56)               |        __kmalloc() {
+  56)   0.132 us    |          __cond_resched();
+  56)   0.131 us    |          should_failslab.constprop.0();
+  56)   0.736 us    |        }
+  56)   2.649 us    |      }
+  56)               |      kmalloc_trace() {
+  56)   0.144 us    |        __cond_resched();
+  56)   0.142 us    |        should_failslab.constprop.0();
+  56)   0.730 us    |      }
+  56)   0.145 us    |      __mutex_init();
+  56)   0.139 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.159 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.174 us    |        _raw_spin_lock();
+  56)   0.137 us    |        _raw_spin_unlock();
+  56)   1.106 us    |      }
+  56)               |      amdgpu_gem_object_create [amdgpu]() {
+  56)               |        amdgpu_bo_create_user [amdgpu]() {
+  56)               |          amdgpu_bo_create [amdgpu]() {
+  56)   0.393 us    |            kvmalloc_node();
+  56)   0.255 us    |            drm_gem_private_object_init();
+  56)   0.203 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  56) + 19.356 us   |            amdttm_bo_init_reserved [amdttm]();
+  56)   0.281 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  56)   0.169 us    |            _raw_spin_lock();
+  56)   0.258 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.162 us    |            _raw_spin_unlock();
+  56)   0.165 us    |            ww_mutex_unlock();
+  56) + 23.045 us   |          }
+  56) + 23.309 us   |        }
+  56) + 23.593 us   |      }
+  56)               |      drm_vma_node_allow() {
+  56)               |        vma_node_allow() {
+  56)               |          kmalloc_trace() {
+  56)   0.138 us    |            __cond_resched();
+  56)   0.138 us    |            should_failslab.constprop.0();
+  56)   0.746 us    |          }
+  56)   0.142 us    |          _raw_write_lock();
+  56)   0.133 us    |          _raw_write_unlock();
+  56)   0.138 us    |          kfree();
+  56)   1.803 us    |        }
+  56)   2.103 us    |      }
+  56)               |      drm_gem_handle_create() {
+  56)               |        mutex_lock() {
+  56)   0.134 us    |          __cond_resched();
+  56)   0.609 us    |        }
+  56)               |        drm_gem_handle_create_tail() {
+  56)   0.133 us    |          mutex_is_locked();
+  56)   0.181 us    |          _raw_spin_lock();
+  56)   0.141 us    |          _raw_spin_unlock();
+  56)   0.139 us    |          mutex_unlock();
+  56)               |          drm_vma_node_allow() {
+  56)   0.551 us    |            vma_node_allow();
+  56)   0.786 us    |          }
+  56)               |          amdgpu_gem_object_open [amdgpu]() {
+  56)   0.141 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.204 us    |            ww_mutex_lock_interruptible();
+  56)   0.136 us    |            amdgpu_vm_bo_find [amdgpu]();
+  56)   0.965 us    |            amdgpu_vm_bo_add [amdgpu]();
+  56)   0.156 us    |            _raw_spin_lock();
+  56)   0.182 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.133 us    |            _raw_spin_unlock();
+  56)   0.137 us    |            ww_mutex_unlock();
+  56)   3.203 us    |          }
+  56)   5.836 us    |        }
+  56)   6.819 us    |      }
+  56)               |      mutex_lock() {
+  56)   0.136 us    |        __cond_resched();
+  56)   0.482 us    |      }
+  56)   0.245 us    |      mutex_unlock();
+  56)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+  56)               |        ww_mutex_lock_interruptible() {
+  56)   0.141 us    |          __cond_resched();
+  56)   0.787 us    |        }
+  56)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+  56)   0.136 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.176 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+  56)               |          amdttm_bo_validate [amdttm]() {
+  56)   0.148 us    |            ttm_resource_compatible [amdttm]();
+  56)   1.376 us    |            amdttm_bo_mem_space [amdttm]();
+  56)   2.761 us    |            ttm_bo_handle_move_mem [amdttm]();
+  56)   4.765 us    |          }
+  56)               |          amdttm_bo_pin [amdttm]() {
+  56)   0.159 us    |            _raw_spin_lock();
+  56)   0.137 us    |            ttm_resource_del_bulk_move [amdttm]();
+  56)   0.150 us    |            _raw_spin_unlock();
+  56)   0.957 us    |          }
+  56)   6.748 us    |        }
+  56)               |        amdgpu_bo_sync_wait [amdgpu]() {
+  56)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+  56)   0.140 us    |            amdgpu_sync_create [amdgpu]();
+  56)   0.332 us    |            amdgpu_sync_resv [amdgpu]();
+  56)   0.242 us    |            amdgpu_sync_wait [amdgpu]();
+  56)   0.168 us    |            amdgpu_sync_free [amdgpu]();
+  56)   1.490 us    |          }
+  56)   1.769 us    |        }
+  56)   0.143 us    |        _raw_spin_lock();
+  56)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+  56)   0.165 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+  56)   0.604 us    |        }
+  56)   0.135 us    |        _raw_spin_unlock();
+  56)   0.140 us    |        ww_mutex_unlock();
+  56) + 11.269 us   |      }
+  56) + 51.128 us   |    }
+  56)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.136 us    |        __cond_resched();
+  56)   0.135 us    |        should_failslab.constprop.0();
+  56)   0.704 us    |      }
+  56)               |      kmem_cache_alloc() {
+  56)   0.134 us    |        __cond_resched();
+  56)   0.136 us    |        should_failslab.constprop.0();
+  56)   0.742 us    |      }
+  56)   2.146 us    |    }
+  56)   0.146 us    |    mutex_unlock();
+  56) + 66.131 us   |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)   0.312 us    |    irq_enter_rcu();
+  56)               |    __sysvec_irq_work() {
+  56)               |      __wake_up() {
+  56)   0.153 us    |        _raw_spin_lock_irqsave();
+  56)               |        __wake_up_common() {
+  56)               |          autoremove_wake_function() {
+  56)   2.368 us    |            default_wake_function();
+  56)   2.645 us    |          }
+  56)   3.136 us    |        }
+  56)   0.133 us    |        _raw_spin_unlock_irqrestore();
+  56)   4.156 us    |      }
+  56)   4.620 us    |    }
+  56)               |    irq_exit_rcu() {
+  56)   0.147 us    |      sched_core_idle_cpu();
+  56)   0.430 us    |    }
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.151 us    |          __cond_resched();
+  56)   0.133 us    |          __rcu_read_lock();
+  56)   0.182 us    |          _raw_spin_lock_irq();
+  56)   0.158 us    |          _raw_spin_unlock_irq();
+  56)   0.128 us    |          __rcu_read_unlock();
+  56)   1.510 us    |        }
+  56)   1.753 us    |      }
+  56)               |      down_write() {
+  56)   0.128 us    |        __cond_resched();
+  56)   0.376 us    |      }
+  56)   2.582 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.132 us    |      __cond_resched();
+  56)   0.594 us    |    }
+  56)   0.143 us    |    up_write();
+  56)   0.139 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.127 us    |      __cond_resched();
+  56)   0.683 us    |    }
+  56)   0.133 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.133 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      create_sg_table [amdgpu]() {
+  56)               |        kmalloc_trace() {
+  56)   0.133 us    |          __cond_resched();
+  56)   0.141 us    |          should_failslab.constprop.0();
+  56)   0.707 us    |        }
+  56)               |        __kmalloc() {
+  56)   0.130 us    |          __cond_resched();
+  56)   0.131 us    |          should_failslab.constprop.0();
+  56)   0.690 us    |        }
+  56)   1.957 us    |      }
+  56)               |      kmalloc_trace() {
+  56)   0.128 us    |        __cond_resched();
+  56)   0.130 us    |        should_failslab.constprop.0();
+  56)   0.698 us    |      }
+  56)   0.133 us    |      __mutex_init();
+  56)   0.136 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.155 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.167 us    |        _raw_spin_lock();
+  56)   0.128 us    |        _raw_spin_unlock();
+  56)   1.056 us    |      }
+  56)               |      amdgpu_gem_object_create [amdgpu]() {
+  56)               |        amdgpu_bo_create_user [amdgpu]() {
+  56)               |          amdgpu_bo_create [amdgpu]() {
+  56)   0.367 us    |            kvmalloc_node();
+  56)   0.260 us    |            drm_gem_private_object_init();
+  56)   0.204 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  56)   6.587 us    |            amdttm_bo_init_reserved [amdttm]();
+  56)   0.263 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  56)   0.156 us    |            _raw_spin_lock();
+  56)   0.198 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.134 us    |            _raw_spin_unlock();
+  56)   0.138 us    |            ww_mutex_unlock();
+  56)   9.975 us    |          }
+  56) + 10.258 us   |        }
+  56) + 10.527 us   |      }
+  56)               |      drm_vma_node_allow() {
+  56)               |        vma_node_allow() {
+  56)               |          kmalloc_trace() {
+  56)   0.135 us    |            irq_enter_rcu();
+  56)   7.549 us    |            __sysvec_apic_timer_interrupt();
+  56)   0.226 us    |            irq_exit_rcu();
+  56)   0.176 us    |            __cond_resched();
+  56)   0.161 us    |            should_failslab.constprop.0();
+  56)   9.466 us    |          }
+  56)   0.158 us    |          _raw_write_lock();
+  56)   0.153 us    |          _raw_write_unlock();
+  56)   0.145 us    |          kfree();
+  56) + 10.543 us   |        }
+  56) + 10.811 us   |      }
+  56)               |      drm_gem_handle_create() {
+  56)               |        mutex_lock() {
+  56)   0.130 us    |          __cond_resched();
+  56)   0.608 us    |        }
+  56)               |        drm_gem_handle_create_tail() {
+  56)   0.131 us    |          mutex_is_locked();
+  56)   0.174 us    |          _raw_spin_lock();
+  56)   0.142 us    |          _raw_spin_unlock();
+  56)   0.473 us    |          mutex_unlock();
+  56)               |          drm_vma_node_allow() {
+  56)   0.550 us    |            vma_node_allow();
+  56)   0.788 us    |          }
+  56)               |          amdgpu_gem_object_open [amdgpu]() {
+  56)   0.143 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.202 us    |            ww_mutex_lock_interruptible();
+  56)   0.150 us    |            amdgpu_vm_bo_find [amdgpu]();
+  56)   0.888 us    |            amdgpu_vm_bo_add [amdgpu]();
+  56)   0.150 us    |            _raw_spin_lock();
+  56)   0.187 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.142 us    |            _raw_spin_unlock();
+  56)   0.143 us    |            ww_mutex_unlock();
+  56)   3.199 us    |          }
+  56)   6.272 us    |        }
+  56)   7.308 us    |      }
+  56)               |      mutex_lock() {
+  56)   0.129 us    |        __cond_resched();
+  56)   0.516 us    |      }
+  56)   0.199 us    |      mutex_unlock();
+  56)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+  56)               |        ww_mutex_lock_interruptible() {
+  56)   0.133 us    |          __cond_resched();
+  56)   0.380 us    |        }
+  56)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+  56)   0.133 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.171 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+  56)               |          amdttm_bo_validate [amdttm]() {
+  56)   0.152 us    |            ttm_resource_compatible [amdttm]();
+  56)   1.414 us    |            amdttm_bo_mem_space [amdttm]();
+  56)   2.741 us    |            ttm_bo_handle_move_mem [amdttm]();
+  56)   4.815 us    |          }
+  56)               |          amdttm_bo_pin [amdttm]() {
+  56)   0.155 us    |            _raw_spin_lock();
+  56)   0.134 us    |            ttm_resource_del_bulk_move [amdttm]();
+  56)   0.135 us    |            _raw_spin_unlock();
+  56)   0.906 us    |          }
+  56)   6.751 us    |        }
+  56)               |        amdgpu_bo_sync_wait [amdgpu]() {
+  56)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+  56)   0.149 us    |            amdgpu_sync_create [amdgpu]();
+  56)   0.332 us    |            amdgpu_sync_resv [amdgpu]();
+  56)   0.260 us    |            amdgpu_sync_wait [amdgpu]();
+  56)   0.185 us    |            amdgpu_sync_free [amdgpu]();
+  56)   1.528 us    |          }
+  56)   1.783 us    |        }
+  56)   0.144 us    |        _raw_spin_lock();
+  56)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+  56)   0.148 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+  56)   0.575 us    |        }
+  56)   0.135 us    |        _raw_spin_unlock();
+  56)   0.139 us    |        ww_mutex_unlock();
+  56) + 10.881 us   |      }
+  56) + 46.076 us   |    }
+  56)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.154 us    |        __cond_resched();
+  56)   0.131 us    |        should_failslab.constprop.0();
+  56)   0.709 us    |      }
+  56)               |      kmem_cache_alloc() {
+  56)   0.135 us    |        __cond_resched();
+  56)   0.132 us    |        should_failslab.constprop.0();
+  56)   0.718 us    |      }
+  56)   2.057 us    |    }
+  56)   0.140 us    |    mutex_unlock();
+  56) + 63.576 us   |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)   0.240 us    |    irq_enter_rcu();
+  56)               |    __sysvec_irq_work() {
+  56)               |      __wake_up() {
+  56)   0.297 us    |        _raw_spin_lock_irqsave();
+  56)               |        __wake_up_common() {
+  56)               |          autoremove_wake_function() {
+  56)   2.509 us    |            default_wake_function();
+  56)   2.850 us    |          }
+  56)   3.828 us    |        }
+  56)   0.160 us    |        _raw_spin_unlock_irqrestore();
+  56)   4.854 us    |      }
+  56)   5.334 us    |    }
+  56)               |    irq_exit_rcu() {
+  56)   0.160 us    |      sched_core_idle_cpu();
+  56)   0.478 us    |    }
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.151 us    |          __cond_resched();
+  56)   0.136 us    |          __rcu_read_lock();
+  56)   0.200 us    |          _raw_spin_lock_irq();
+  56)   0.142 us    |          _raw_spin_unlock_irq();
+  56)   0.136 us    |          __rcu_read_unlock();
+  56)   1.615 us    |        }
+  56)   1.883 us    |      }
+  56)               |      down_write() {
+  56)   0.131 us    |        __cond_resched();
+  56)   0.395 us    |      }
+  56)   2.719 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.134 us    |      __cond_resched();
+  56)   0.385 us    |    }
+  56)   0.146 us    |    up_write();
+  56)   0.144 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.141 us    |      __cond_resched();
+  56)   0.391 us    |    }
+  56)   0.136 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.136 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      create_sg_table [amdgpu]() {
+  56)               |        kmalloc_trace() {
+  56)   0.132 us    |          __cond_resched();
+  56)   0.136 us    |          should_failslab.constprop.0();
+  56)   0.721 us    |        }
+  56)               |        __kmalloc() {
+  56)   0.134 us    |          __cond_resched();
+  56)   0.129 us    |          should_failslab.constprop.0();
+  56)   0.722 us    |        }
+  56)   1.947 us    |      }
+  56)               |      kmalloc_trace() {
+  56)   0.131 us    |        __cond_resched();
+  56)   0.134 us    |        should_failslab.constprop.0();
+  56)   0.734 us    |      }
+  56)   0.132 us    |      __mutex_init();
+  56)   0.135 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.156 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.175 us    |        _raw_spin_lock();
+  56)   0.133 us    |        _raw_spin_unlock();
+  56)   1.108 us    |      }
+  56)               |      amdgpu_gem_object_create [amdgpu]() {
+  56)               |        amdgpu_bo_create_user [amdgpu]() {
+  56)               |          amdgpu_bo_create [amdgpu]() {
+  56)   0.384 us    |            kvmalloc_node();
+  56)   0.284 us    |            drm_gem_private_object_init();
+  56)   0.165 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  56)   7.066 us    |            amdttm_bo_init_reserved [amdttm]();
+  56)   0.275 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  56)   0.145 us    |            _raw_spin_lock();
+  56)   0.263 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.151 us    |            _raw_spin_unlock();
+  56)   0.146 us    |            ww_mutex_unlock();
+  56) + 10.500 us   |          }
+  56) + 10.753 us   |        }
+  56) + 11.025 us   |      }
+  56)               |      drm_vma_node_allow() {
+  56)               |        vma_node_allow() {
+  56)               |          kmalloc_trace() {
+  56)   0.150 us    |            __cond_resched();
+  56)   0.133 us    |            should_failslab.constprop.0();
+  56)   1.183 us    |          }
+  56)   0.142 us    |          _raw_write_lock();
+  56)   0.290 us    |          _raw_write_unlock();
+  56)   0.282 us    |          kfree();
+  56)   2.940 us    |        }
+  56)   3.443 us    |      }
+  56)               |      drm_gem_handle_create() {
+  56)               |        mutex_lock() {
+  56)   0.126 us    |          __cond_resched();
+  56)   0.479 us    |        }
+  56)               |        drm_gem_handle_create_tail() {
+  56)   0.132 us    |          mutex_is_locked();
+  56)   0.162 us    |          _raw_spin_lock();
+  56)   0.133 us    |          _raw_spin_unlock();
+  56)   0.139 us    |          mutex_unlock();
+  56)               |          drm_vma_node_allow() {
+  56)   0.570 us    |            vma_node_allow();
+  56)   0.805 us    |          }
+  56)               |          amdgpu_gem_object_open [amdgpu]() {
+  56)   0.134 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.228 us    |            ww_mutex_lock_interruptible();
+  56)   0.141 us    |            amdgpu_vm_bo_find [amdgpu]();
+  56)   0.952 us    |            amdgpu_vm_bo_add [amdgpu]();
+  56)   0.155 us    |            _raw_spin_lock();
+  56)   0.196 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.139 us    |            _raw_spin_unlock();
+  56)   0.151 us    |            ww_mutex_unlock();
+  56)   3.235 us    |          }
+  56)   5.904 us    |        }
+  56)   6.996 us    |      }
+  56)               |      mutex_lock() {
+  56)   0.130 us    |        __cond_resched();
+  56)   0.611 us    |      }
+  56)   0.175 us    |      mutex_unlock();
+  56)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+  56)               |        ww_mutex_lock_interruptible() {
+  56)   0.140 us    |          __cond_resched();
+  56)   0.384 us    |        }
+  56)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+  56)   0.131 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.144 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+  56)               |          amdttm_bo_validate [amdttm]() {
+  56)   0.147 us    |            ttm_resource_compatible [amdttm]();
+  56)   1.598 us    |            amdttm_bo_mem_space [amdttm]();
+  56)   2.775 us    |            ttm_bo_handle_move_mem [amdttm]();
+  56)   5.002 us    |          }
+  56)               |          amdttm_bo_pin [amdttm]() {
+  56)   0.157 us    |            _raw_spin_lock();
+  56)   0.157 us    |            ttm_resource_del_bulk_move [amdttm]();
+  56)   0.148 us    |            _raw_spin_unlock();
+  56)   0.948 us    |          }
+  56)   6.898 us    |        }
+  56)               |        amdgpu_bo_sync_wait [amdgpu]() {
+  56)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+  56)   0.140 us    |            amdgpu_sync_create [amdgpu]();
+  56)   0.337 us    |            amdgpu_sync_resv [amdgpu]();
+  56)   0.250 us    |            amdgpu_sync_wait [amdgpu]();
+  56)   0.142 us    |            amdgpu_sync_free [amdgpu]();
+  56)   1.493 us    |          }
+  56)   1.764 us    |        }
+  56)   0.143 us    |        _raw_spin_lock();
+  56)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+  56)   0.136 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+  56)   0.567 us    |        }
+  56)   0.133 us    |        _raw_spin_unlock();
+  56)   0.141 us    |        ww_mutex_unlock();
+  56) + 11.248 us   |      }
+  56) + 39.614 us   |    }
+  56)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.131 us    |        __cond_resched();
+  56)   0.132 us    |        should_failslab.constprop.0();
+  56)   0.689 us    |      }
+  56)               |      kmem_cache_alloc() {
+  56)   0.134 us    |        __cond_resched();
+  56)   0.139 us    |        should_failslab.constprop.0();
+  56)   0.718 us    |      }
+  56)   2.065 us    |    }
+  56)   0.143 us    |    mutex_unlock();
+  56) + 56.188 us   |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.167 us    |          __cond_resched();
+  56)   0.147 us    |          __rcu_read_lock();
+  56)   0.150 us    |          _raw_spin_lock_irq();
+  56)   0.142 us    |          _raw_spin_unlock_irq();
+  56)   0.139 us    |          __rcu_read_unlock();
+  56)   1.606 us    |        }
+  56)   1.889 us    |      }
+  56)               |      down_write() {
+  56)   0.134 us    |        __cond_resched();
+  56)   0.386 us    |      }
+  56)   2.672 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.155 us    |      __cond_resched();
+  56)   0.405 us    |    }
+  56)   0.139 us    |    up_write();
+  56)   0.171 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.133 us    |      __cond_resched();
+  56)   0.376 us    |    }
+  56)   0.140 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.135 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    down_read() {
+  56)   0.132 us    |      __cond_resched();
+  56)   0.696 us    |    }
+  56)               |    find_vma() {
+  56)   0.138 us    |      __rcu_read_lock();
+  56)   0.133 us    |      __rcu_read_unlock();
+  56)   0.881 us    |    }
+  56)   0.142 us    |    up_read();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.134 us    |        __cond_resched();
+  56)   0.132 us    |        should_failslab.constprop.0();
+  56)   0.652 us    |      }
+  56)   0.133 us    |      __mutex_init();
+  56)   0.136 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.135 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.141 us    |        _raw_spin_lock();
+  56)   0.135 us    |        _raw_spin_unlock();
+  56)   0.915 us    |      }
+  56)               |      amdgpu_gem_object_create [amdgpu]() {
+  56)               |        amdgpu_bo_create_user [amdgpu]() {
+  56)               |          amdgpu_bo_create [amdgpu]() {
+  56)   0.325 us    |            kvmalloc_node();
+  56)   0.265 us    |            drm_gem_private_object_init();
+  56)   0.141 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  56)   4.272 us    |            amdttm_bo_init_reserved [amdttm]();
+  56)   0.250 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  56)   0.150 us    |            _raw_spin_lock();
+  56)   0.188 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.131 us    |            _raw_spin_unlock();
+  56)   0.141 us    |            ww_mutex_unlock();
+  56)   7.798 us    |          }
+  56)   8.051 us    |        }
+  56)   8.327 us    |      }
+  56)               |      drm_vma_node_allow() {
+  56)               |        vma_node_allow() {
+  56)               |          kmalloc_trace() {
+  56)   0.135 us    |            __cond_resched();
+  56)   0.151 us    |            should_failslab.constprop.0();
+  56)   0.722 us    |          }
+  56)   0.144 us    |          _raw_write_lock();
+  56)   0.150 us    |          _raw_write_unlock();
+  56)   0.151 us    |          kfree();
+  56)   1.768 us    |        }
+  56)   2.034 us    |      }
+  56)               |      drm_gem_handle_create() {
+  56)               |        mutex_lock() {
+  56)   0.132 us    |          __cond_resched();
+  56)   0.375 us    |        }
+  56)               |        drm_gem_handle_create_tail() {
+  56)   0.136 us    |          mutex_is_locked();
+  56)   0.145 us    |          _raw_spin_lock();
+  56)   0.132 us    |          _raw_spin_unlock();
+  56)   0.139 us    |          mutex_unlock();
+  56)               |          drm_vma_node_allow() {
+  56)   0.549 us    |            vma_node_allow();
+  56)   0.787 us    |          }
+  56)               |          amdgpu_gem_object_open [amdgpu]() {
+  56)   0.135 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.185 us    |            ww_mutex_lock_interruptible();
+  56)   0.140 us    |            amdgpu_vm_bo_find [amdgpu]();
+  56)   0.764 us    |            amdgpu_vm_bo_add [amdgpu]();
+  56)   0.137 us    |            _raw_spin_lock();
+  56)   0.201 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.135 us    |            _raw_spin_unlock();
+  56)   0.143 us    |            ww_mutex_unlock();
+  56)   2.920 us    |          }
+  56)   5.209 us    |        }
+  56)   5.948 us    |      }
+  56)               |      mutex_lock() {
+  56)   0.128 us    |        __cond_resched();
+  56)   0.388 us    |      }
+  56)   0.152 us    |      mutex_unlock();
+  56)               |      mutex_lock() {
+  56)   0.134 us    |        __cond_resched();
+  56)   0.376 us    |      }
+  56)   0.149 us    |      amdgpu_ttm_tt_set_userptr [amdgpu]();
+  56)               |      amdgpu_hmm_register [amdgpu]() {
+  56)               |        mmu_interval_notifier_insert() {
+  56)               |          __mmu_interval_notifier_insert() {
+  56)   0.141 us    |            _raw_spin_lock();
+  56)   0.138 us    |            _raw_spin_unlock();
+  56)   0.698 us    |          }
+  56)   1.017 us    |        }
+  56)   1.321 us    |      }
+  56)               |      amdgpu_ttm_tt_get_user_pages [amdgpu]() {
+  56)               |        down_read() {
+  56)   0.132 us    |          __cond_resched();
+  56)   0.382 us    |        }
+  56)   0.135 us    |        __rcu_read_lock();
+  56)   0.135 us    |        __rcu_read_unlock();
+  56)               |        amdgpu_hmm_range_get_pages [amdgpu]() {
+  56)               |          kmalloc_trace() {
+  56)   0.134 us    |            __cond_resched();
+  56)   0.135 us    |            should_failslab.constprop.0();
+  56)   0.647 us    |          }
+  56)               |          kvmalloc_node() {
+  56)   0.424 us    |            __kmalloc_node();
+  56)   0.660 us    |          }
+  56)               |          mmu_interval_read_begin() {
+  56)   0.141 us    |            _raw_spin_lock();
+  56)   0.134 us    |            _raw_spin_unlock();
+  56)   0.662 us    |          }
+  56)               |          hmm_range_fault() {
+  56) + 11.826 us   |            walk_page_range();
+  56)   1.635 us    |            walk_page_range();
+  56) + 13.881 us   |          }
+  56) + 16.494 us   |        }
+  56)   0.180 us    |        up_read();
+  56)               |        mmput() {
+  56)   0.160 us    |          __cond_resched();
+  56)   0.472 us    |        }
+  56) + 18.884 us   |      }
+  56)               |      ww_mutex_lock() {
+  56)   0.132 us    |        __cond_resched();
+  56)   0.398 us    |      }
+  56)   0.153 us    |      amdgpu_bo_placement_from_domain [amdgpu]();
+  56)               |      amdttm_bo_validate [amdttm]() {
+  56)   0.135 us    |        ttm_resource_compatible [amdttm]();
+  56)               |        amdttm_bo_mem_space [amdttm]() {
+  56)   0.143 us    |          amddma_resv_reserve_fences [amdkcl]();
+  56)               |          amdttm_resource_alloc [amdttm]() {
+  56)   0.513 us    |            amdgpu_preempt_mgr_new [amdgpu]();
+  56)   0.140 us    |            _raw_spin_lock();
+  56)   0.131 us    |            ttm_resource_add_bulk_move [amdttm]();
+  56)   0.132 us    |            _raw_spin_unlock();
+  56)   1.528 us    |          }
+  56)               |          ttm_bo_add_move_fence.constprop.0 [amdttm]() {
+  56)   0.138 us    |            _raw_spin_lock();
+  56)   0.135 us    |            _raw_spin_unlock();
+  56)   0.632 us    |          }
+  56)   2.792 us    |        }
+  56)               |        ttm_bo_handle_move_mem [amdttm]() {
+  56)               |          amdttm_bo_unmap_virtual [amdttm]() {
+  56)   0.433 us    |            unmap_mapping_range();
+  56)   0.155 us    |            ttm_mem_io_free [amdttm]();
+  56)   0.958 us    |          }
+  56)   0.132 us    |          amdttm_tt_create [amdttm]();
+  56)               |          amdttm_tt_populate [amdttm]() {
+  56)   0.424 us    |            amdgpu_ttm_tt_populate [amdgpu]();
+  56)   0.681 us    |          }
+  56)   0.134 us    |          amddma_resv_reserve_fences [amdkcl]();
+  56)               |          amdgpu_bo_move [amdgpu]() {
+  56)   0.297 us    |            __kmalloc();
+  56)   4.565 us    |            dma_map_sgtable();
+  56)   0.218 us    |            drm_prime_sg_to_dma_addr_array();
+  56)   0.381 us    |            amdgpu_bo_move_notify [amdgpu]();
+  56)   0.667 us    |            amdttm_resource_free [amdttm]();
+  56)   7.339 us    |          }
+  56) + 10.014 us   |        }
+  56) + 13.433 us   |      }
+  56)   0.158 us    |      _raw_spin_lock();
+  56)               |      amdttm_bo_move_to_lru_tail [amdttm]() {
+  56)   0.184 us    |        ttm_resource_move_to_lru_tail [amdttm]();
+  56)   0.445 us    |      }
+  56)   0.145 us    |      _raw_spin_unlock();
+  56)   0.145 us    |      ww_mutex_unlock();
+  56)               |      amdgpu_ttm_tt_get_user_pages_done [amdgpu]() {
+  56)   0.143 us    |        ___drm_dbg();
+  56)               |        amdgpu_hmm_range_get_pages_done [amdgpu]() {
+  56)               |          kvfree() {
+  56)   0.130 us    |            is_vmalloc_addr();
+  56)   0.189 us    |            kfree();
+  56)   0.676 us    |          }
+  56)   0.174 us    |          kfree();
+  56)   1.212 us    |        }
+  56)   1.720 us    |      }
+  56)   0.141 us    |      mutex_unlock();
+  56) + 59.286 us   |    }
+  56)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.132 us    |        __cond_resched();
+  56)   0.132 us    |        should_failslab.constprop.0();
+  56)   0.628 us    |      }
+  56)   1.074 us    |    }
+  56)   0.138 us    |    mutex_unlock();
+  56) + 69.139 us   |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)   0.252 us    |    irq_enter_rcu();
+  56)               |    __sysvec_irq_work() {
+  56)               |      __wake_up() {
+  56)   0.155 us    |        _raw_spin_lock_irqsave();
+  56)               |        __wake_up_common() {
+  56)               |          autoremove_wake_function() {
+  56)   2.158 us    |            default_wake_function();
+  56)   2.439 us    |          }
+  56)   2.901 us    |        }
+  56)   0.133 us    |        _raw_spin_unlock_irqrestore();
+  56)   3.838 us    |      }
+  56)   4.306 us    |    }
+  56)               |    irq_exit_rcu() {
+  56)   0.149 us    |      sched_core_idle_cpu();
+  56)   0.412 us    |    }
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.181 us    |          __cond_resched();
+  56)   0.137 us    |          __rcu_read_lock();
+  56)   0.206 us    |          _raw_spin_lock_irq();
+  56)   0.160 us    |          _raw_spin_unlock_irq();
+  56)   0.141 us    |          __rcu_read_unlock();
+  56)   1.610 us    |        }
+  56)   1.862 us    |      }
+  56)               |      down_write() {
+  56)   0.133 us    |        __cond_resched();
+  56)   0.384 us    |      }
+  56)   2.696 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.133 us    |      __cond_resched();
+  56)   0.378 us    |    }
+  56)   0.142 us    |    up_write();
+  56)   0.144 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.135 us    |      __cond_resched();
+  56)   0.380 us    |    }
+  56)   0.135 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.134 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      create_sg_table [amdgpu]() {
+  56)               |        kmalloc_trace() {
+  56)   0.132 us    |          __cond_resched();
+  56)   0.132 us    |          should_failslab.constprop.0();
+  56)   0.705 us    |        }
+  56)               |        __kmalloc() {
+  56)   0.133 us    |          __cond_resched();
+  56)   0.131 us    |          should_failslab.constprop.0();
+  56)   0.714 us    |        }
+  56)   1.995 us    |      }
+  56)               |      kmalloc_trace() {
+  56)   0.154 us    |        __cond_resched();
+  56)   0.134 us    |        should_failslab.constprop.0();
+  56)   0.759 us    |      }
+  56)   0.130 us    |      __mutex_init();
+  56)   0.137 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.157 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.182 us    |        _raw_spin_lock();
+  56)   0.134 us    |        _raw_spin_unlock();
+  56)   1.093 us    |      }
+  56)               |      amdgpu_gem_object_create [amdgpu]() {
+  56)               |        amdgpu_bo_create_user [amdgpu]() {
+  56)               |          amdgpu_bo_create [amdgpu]() {
+  56)   0.359 us    |            kvmalloc_node();
+  56)   0.265 us    |            drm_gem_private_object_init();
+  56)   0.178 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  56)   7.053 us    |            amdttm_bo_init_reserved [amdttm]();
+  56)   0.504 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  56)   0.141 us    |            _raw_spin_lock();
+  56)   0.281 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.146 us    |            _raw_spin_unlock();
+  56)   0.152 us    |            ww_mutex_unlock();
+  56) + 11.784 us   |          }
+  56) + 12.201 us   |        }
+  56) + 12.627 us   |      }
+  56)               |      drm_vma_node_allow() {
+  56)               |        vma_node_allow() {
+  56)               |          kmalloc_trace() {
+  56)   0.131 us    |            __cond_resched();
+  56)   0.130 us    |            should_failslab.constprop.0();
+  56)   1.046 us    |          }
+  56)   0.139 us    |          _raw_write_lock();
+  56)   0.132 us    |          _raw_write_unlock();
+  56)   0.132 us    |          kfree();
+  56)   2.077 us    |        }
+  56)   2.360 us    |      }
+  56)               |      drm_gem_handle_create() {
+  56)               |        mutex_lock() {
+  56)   0.129 us    |          __cond_resched();
+  56)   0.475 us    |        }
+  56)               |        drm_gem_handle_create_tail() {
+  56)   0.131 us    |          mutex_is_locked();
+  56)   0.171 us    |          _raw_spin_lock();
+  56)   0.131 us    |          _raw_spin_unlock();
+  56)   0.136 us    |          mutex_unlock();
+  56)               |          drm_vma_node_allow() {
+  56)   0.582 us    |            vma_node_allow();
+  56)   0.816 us    |          }
+  56)               |          amdgpu_gem_object_open [amdgpu]() {
+  56)   0.135 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.190 us    |            ww_mutex_lock_interruptible();
+  56)   0.143 us    |            amdgpu_vm_bo_find [amdgpu]();
+  56)   0.944 us    |            amdgpu_vm_bo_add [amdgpu]();
+  56)   0.143 us    |            _raw_spin_lock();
+  56)   0.189 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.132 us    |            _raw_spin_unlock();
+  56)   0.144 us    |            ww_mutex_unlock();
+  56)   3.090 us    |          }
+  56)   5.762 us    |        }
+  56)   6.646 us    |      }
+  56)               |      mutex_lock() {
+  56)   0.133 us    |        __cond_resched();
+  56)   0.473 us    |      }
+  56)   0.141 us    |      mutex_unlock();
+  56)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+  56)               |        ww_mutex_lock_interruptible() {
+  56)   0.131 us    |          __cond_resched();
+  56)   0.402 us    |        }
+  56)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+  56)   0.134 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.155 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+  56)               |          amdttm_bo_validate [amdttm]() {
+  56)   0.354 us    |            ttm_resource_compatible [amdttm]();
+  56)   1.770 us    |            amdttm_bo_mem_space [amdttm]();
+  56)   2.642 us    |            ttm_bo_handle_move_mem [amdttm]();
+  56)   5.339 us    |          }
+  56)               |          amdttm_bo_pin [amdttm]() {
+  56)   0.154 us    |            _raw_spin_lock();
+  56)   0.134 us    |            ttm_resource_del_bulk_move [amdttm]();
+  56)   0.146 us    |            _raw_spin_unlock();
+  56)   0.932 us    |          }
+  56)   7.281 us    |        }
+  56)               |        amdgpu_bo_sync_wait [amdgpu]() {
+  56)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+  56)   0.143 us    |            amdgpu_sync_create [amdgpu]();
+  56)   0.334 us    |            amdgpu_sync_resv [amdgpu]();
+  56)   0.246 us    |            amdgpu_sync_wait [amdgpu]();
+  56)   0.172 us    |            amdgpu_sync_free [amdgpu]();
+  56)   1.508 us    |          }
+  56)   2.004 us    |        }
+  56)   0.332 us    |        _raw_spin_lock();
+  56)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+  56)   0.202 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+  56)   0.790 us    |        }
+  56)   0.132 us    |        _raw_spin_unlock();
+  56)   0.141 us    |        ww_mutex_unlock();
+  56) + 12.605 us   |      }
+  56) + 41.061 us   |    }
+  56)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.132 us    |        __cond_resched();
+  56)   0.131 us    |        should_failslab.constprop.0();
+  56)   0.677 us    |      }
+  56)   1.161 us    |    }
+  56)   0.144 us    |    mutex_unlock();
+  56) + 55.433 us   |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.157 us    |          __cond_resched();
+  56)   0.151 us    |          __rcu_read_lock();
+  56)   0.154 us    |          _raw_spin_lock_irq();
+  56)   0.158 us    |          _raw_spin_unlock_irq();
+  56)   0.159 us    |          __rcu_read_unlock();
+  56)   1.659 us    |        }
+  56)   1.932 us    |      }
+  56)               |      down_write() {
+  56)   0.139 us    |        __cond_resched();
+  56)   0.549 us    |      }
+  56)   3.051 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.263 us    |      __cond_resched();
+  56)   0.513 us    |    }
+  56)   0.305 us    |    up_write();
+  56)   0.269 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.131 us    |      __cond_resched();
+  56)   0.530 us    |    }
+  56)   0.139 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.141 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.131 us    |        __cond_resched();
+  56)   0.134 us    |        should_failslab.constprop.0();
+  56)   0.713 us    |      }
+  56)   0.134 us    |      __mutex_init();
+  56)   0.136 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.134 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.145 us    |        amdgpu_amdkfd_xcp_memory_size [amdgpu]();
+  56)   0.143 us    |        _raw_spin_lock();
+  56)   0.134 us    |        _raw_spin_unlock();
+  56)   1.267 us    |      }
+  56)   0.144 us    |      amdgpu_sync_free [amdgpu]();
+  56)   0.207 us    |      kfree();
+  56)   3.842 us    |    }
+  56)   0.140 us    |    mutex_unlock();
+  56) + 11.083 us   |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.172 us    |          __cond_resched();
+  56)   0.159 us    |          __rcu_read_lock();
+  56)   0.162 us    |          _raw_spin_lock_irq();
+  56)   0.139 us    |          _raw_spin_unlock_irq();
+  56)   0.138 us    |          __rcu_read_unlock();
+  56)   1.562 us    |        }
+  56)   1.838 us    |      }
+  56)               |      down_write() {
+  56)   0.132 us    |        __cond_resched();
+  56)   0.383 us    |      }
+  56)   3.128 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.131 us    |      __cond_resched();
+  56)   0.374 us    |    }
+  56)   0.143 us    |    up_write();
+  56)   0.140 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.132 us    |      __cond_resched();
+  56)   0.374 us    |    }
+  56)   0.137 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.133 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.134 us    |        __cond_resched();
+  56)   0.132 us    |        should_failslab.constprop.0();
+  56)   0.672 us    |      }
+  56)   0.137 us    |      __mutex_init();
+  56)   0.141 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.132 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.135 us    |        amdgpu_amdkfd_xcp_memory_size [amdgpu]();
+  56)   0.140 us    |        _raw_spin_lock();
+  56)   0.136 us    |        _raw_spin_unlock();
+  56)   1.131 us    |      }
+  56)   0.141 us    |      amdgpu_sync_free [amdgpu]();
+  56)   0.150 us    |      kfree();
+  56)   3.221 us    |    }
+  56)   0.140 us    |    mutex_unlock();
+  56)   9.004 us    |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.157 us    |          __cond_resched();
+  56)   0.143 us    |          __rcu_read_lock();
+  56)   0.174 us    |          _raw_spin_lock_irq();
+  56)   0.157 us    |          _raw_spin_unlock_irq();
+  56)   0.149 us    |          __rcu_read_unlock();
+  56)   1.564 us    |        }
+  56)   1.823 us    |      }
+  56)               |      down_write() {
+  56)   0.134 us    |        __cond_resched();
+  56)   0.404 us    |      }
+  56)   2.622 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.131 us    |      __cond_resched();
+  56)   0.376 us    |    }
+  56)   0.141 us    |    up_write();
+  56)   0.138 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.131 us    |      __cond_resched();
+  56)   0.374 us    |    }
+  56)   0.135 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.137 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.135 us    |        __cond_resched();
+  56)   0.131 us    |        should_failslab.constprop.0();
+  56)   0.654 us    |      }
+  56)   0.133 us    |      __mutex_init();
+  56)   0.138 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.134 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.131 us    |        amdgpu_amdkfd_xcp_memory_size [amdgpu]();
+  56)   0.142 us    |        _raw_spin_lock();
+  56)   0.133 us    |        _raw_spin_unlock();
+  56)   1.327 us    |      }
+  56)   0.168 us    |      amdgpu_sync_free [amdgpu]();
+  56)   0.149 us    |      kfree();
+  56)   3.388 us    |    }
+  56)   0.138 us    |    mutex_unlock();
+  56)   8.638 us    |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.155 us    |          __cond_resched();
+  56)   0.152 us    |          __rcu_read_lock();
+  56)   0.162 us    |          _raw_spin_lock_irq();
+  56)   0.148 us    |          _raw_spin_unlock_irq();
+  56)   0.141 us    |          __rcu_read_unlock();
+  56)   1.575 us    |        }
+  56)   1.872 us    |      }
+  56)               |      down_write() {
+  56)   0.156 us    |        __cond_resched();
+  56)   0.415 us    |      }
+  56)   2.668 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.148 us    |      __cond_resched();
+  56)   0.422 us    |    }
+  56)   0.160 us    |    up_write();
+  56)   0.140 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.133 us    |      __cond_resched();
+  56)   0.407 us    |    }
+  56)   0.134 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.136 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.134 us    |        __cond_resched();
+  56)   0.135 us    |        should_failslab.constprop.0();
+  56)   0.653 us    |      }
+  56)   0.139 us    |      __mutex_init();
+  56)   0.143 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.132 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.134 us    |        amdgpu_amdkfd_xcp_memory_size [amdgpu]();
+  56)   0.142 us    |        _raw_spin_lock();
+  56)   0.132 us    |        _raw_spin_unlock();
+  56)   1.146 us    |      }
+  56)   0.143 us    |      amdgpu_sync_free [amdgpu]();
+  56)   0.151 us    |      kfree();
+  56)   3.219 us    |    }
+  56)   0.140 us    |    mutex_unlock();
+  56)   8.641 us    |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.155 us    |          __cond_resched();
+  56)   0.146 us    |          __rcu_read_lock();
+  56)   0.155 us    |          _raw_spin_lock_irq();
+  56)   0.137 us    |          _raw_spin_unlock_irq();
+  56)   0.135 us    |          __rcu_read_unlock();
+  56)   1.517 us    |        } /* __flush_work.isra.0 */
+  56)   1.781 us    |      }
+  56)               |      down_write() {
+  56)   0.135 us    |        __cond_resched();
+  56)   0.388 us    |      }
+  56)   2.549 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.132 us    |      __cond_resched();
+  56)   0.375 us    |    }
+  56)   0.140 us    |    up_write();
+  56)   0.154 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.132 us    |      __cond_resched();
+  56)   0.618 us    |    }
+  56)   0.150 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.152 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.133 us    |        __cond_resched();
+  56)   0.131 us    |        should_failslab.constprop.0();
+  56)   0.694 us    |      }
+  56)   0.133 us    |      __mutex_init();
+  56)   0.138 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.131 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.132 us    |        amdgpu_amdkfd_xcp_memory_size [amdgpu]();
+  56)   0.139 us    |        _raw_spin_lock();
+  56)   0.135 us    |        _raw_spin_unlock();
+  56)   1.127 us    |      }
+  56)   0.139 us    |      amdgpu_sync_free [amdgpu]();
+  56)   0.149 us    |      kfree();
+  56)   3.204 us    |    }
+  56)   0.139 us    |    mutex_unlock();
+  56)   8.721 us    |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.154 us    |          __cond_resched();
+  56)   0.145 us    |          __rcu_read_lock();
+  56)   0.153 us    |          _raw_spin_lock_irq();
+  56)   0.139 us    |          _raw_spin_unlock_irq();
+  56)   0.139 us    |          __rcu_read_unlock();
+  56)   1.518 us    |        }
+  56)   1.781 us    |      }
+  56)               |      down_write() {
+  56)   0.144 us    |        __cond_resched();
+  56)   0.419 us    |      }
+  56)   2.575 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.141 us    |      __cond_resched();
+  56)   0.422 us    |    }
+  56)   0.145 us    |    up_write();
+  56)   0.143 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.135 us    |      __cond_resched();
+  56)   0.382 us    |    }
+  56)   0.171 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.137 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.150 us    |        __cond_resched();
+  56)   0.152 us    |        should_failslab.constprop.0();
+  56)   0.703 us    |      }
+  56)   0.138 us    |      __mutex_init();
+  56)   0.143 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.135 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.136 us    |        amdgpu_amdkfd_xcp_memory_size [amdgpu]();
+  56)   0.140 us    |        _raw_spin_lock();
+  56)   0.132 us    |        _raw_spin_unlock();
+  56)   1.145 us    |      }
+  56)   0.142 us    |      amdgpu_sync_free [amdgpu]();
+  56)   0.150 us    |      kfree();
+  56)   3.275 us    |    }
+  56)   0.142 us    |    mutex_unlock();
+  56)   8.655 us    |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.170 us    |          __cond_resched();
+  56)   0.146 us    |          __rcu_read_lock();
+  56)   0.156 us    |          _raw_spin_lock_irq();
+  56)   0.139 us    |          _raw_spin_unlock_irq();
+  56)   0.139 us    |          __rcu_read_unlock();
+  56)   1.883 us    |        }
+  56)   2.163 us    |      }
+  56)               |      down_write() {
+  56)   0.136 us    |        __cond_resched();
+  56)   0.388 us    |      }
+  56)   2.949 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.159 us    |      __cond_resched();
+  56)   0.414 us    |    }
+  56)   0.146 us    |    up_write();
+  56)   0.143 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.132 us    |      __cond_resched();
+  56)   0.381 us    |    }
+  56)   0.138 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.141 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.151 us    |        __cond_resched();
+  56)   0.135 us    |        should_failslab.constprop.0();
+  56)   0.709 us    |      }
+  56)   0.149 us    |      __mutex_init();
+  56)   0.155 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.148 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.134 us    |        amdgpu_amdkfd_xcp_memory_size [amdgpu]();
+  56)   0.143 us    |        _raw_spin_lock();
+  56)   0.133 us    |        _raw_spin_unlock();
+  56)   1.177 us    |      }
+  56)   0.142 us    |      amdgpu_sync_free [amdgpu]();
+  56)   0.152 us    |      kfree();
+  56)   3.319 us    |    }
+  56)   0.142 us    |    mutex_unlock();
+  56)   9.055 us    |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.156 us    |          __cond_resched();
+  56)   0.144 us    |          __rcu_read_lock();
+  56)   0.158 us    |          _raw_spin_lock_irq();
+  56)   0.139 us    |          _raw_spin_unlock_irq();
+  56)   0.136 us    |          __rcu_read_unlock();
+  56)   1.537 us    |        }
+  56)   1.797 us    |      }
+  56)               |      down_write() {
+  56)   0.157 us    |        __cond_resched();
+  56)   0.409 us    |      }
+  56)   2.581 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.136 us    |      __cond_resched();
+  56)   0.384 us    |    }
+  56)   0.146 us    |    up_write();
+  56)   0.143 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.133 us    |      __cond_resched();
+  56)   0.376 us    |    }
+  56)   0.140 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.137 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.134 us    |        __cond_resched();
+  56)   0.136 us    |        should_failslab.constprop.0();
+  56)   0.653 us    |      }
+  56)   0.136 us    |      __mutex_init();
+  56)   0.142 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.133 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.148 us    |        amdgpu_amdkfd_xcp_memory_size [amdgpu]();
+  56)   0.157 us    |        _raw_spin_lock();
+  56)   0.150 us    |        _raw_spin_unlock();
+  56)   1.181 us    |      }
+  56)   0.158 us    |      amdgpu_sync_free [amdgpu]();
+  56)   0.151 us    |      kfree();
+  56)   3.451 us    |    }
+  56)   0.136 us    |    mutex_unlock();
+  56)   8.674 us    |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.154 us    |          __cond_resched();
+  56)   0.144 us    |          __rcu_read_lock();
+  56)   0.157 us    |          _raw_spin_lock_irq();
+  56)   0.141 us    |          _raw_spin_unlock_irq();
+  56)   0.132 us    |          __rcu_read_unlock();
+  56)   1.507 us    |        }
+  56)   1.766 us    |      }
+  56)               |      down_write() {
+  56)   0.134 us    |        __cond_resched();
+  56)   0.383 us    |      }
+  56)   2.543 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.131 us    |      __cond_resched();
+  56)   0.375 us    |    }
+  56)   0.142 us    |    up_write();
+  56)   0.140 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.130 us    |      __cond_resched();
+  56)   0.376 us    |    }
+  56)   0.136 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.135 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.135 us    |        __cond_resched();
+  56)   0.133 us    |        should_failslab.constprop.0();
+  56)   0.648 us    |      }
+  56)   0.138 us    |      __mutex_init();
+  56)   0.138 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.133 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.133 us    |        amdgpu_amdkfd_xcp_memory_size [amdgpu]();
+  56)   0.142 us    |        _raw_spin_lock();
+  56)   0.135 us    |        _raw_spin_unlock();
+  56)   1.136 us    |      }
+  56)   0.142 us    |      amdgpu_sync_free [amdgpu]();
+  56)   0.166 us    |      kfree();
+  56)   3.204 us    |    }
+  56)   0.177 us    |    mutex_unlock();
+  56)   8.437 us    |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.157 us    |          __cond_resched();
+  56)   0.148 us    |          __rcu_read_lock();
+  56)   0.154 us    |          _raw_spin_lock_irq();
+  56)   0.141 us    |          _raw_spin_unlock_irq();
+  56)   0.133 us    |          __rcu_read_unlock();
+  56)   1.521 us    |        }
+  56)   1.786 us    |      }
+  56)               |      down_write() {
+  56)   0.137 us    |        __cond_resched();
+  56)   0.386 us    |      }
+  56)   2.547 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.225 us    |      __cond_resched();
+  56)   0.464 us    |    }
+  56)   0.142 us    |    up_write();
+  56)   0.140 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.150 us    |      __cond_resched();
+  56)   0.390 us    |    }
+  56)   0.139 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.134 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.135 us    |        __cond_resched();
+  56)   0.133 us    |        should_failslab.constprop.0();
+  56)   0.646 us    |      }
+  56)   0.131 us    |      __mutex_init();
+  56)   0.135 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.134 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.133 us    |        amdgpu_amdkfd_xcp_memory_size [amdgpu]();
+  56)   0.141 us    |        _raw_spin_lock();
+  56)   0.138 us    |        _raw_spin_unlock();
+  56)   1.127 us    |      }
+  56)   0.140 us    |      amdgpu_sync_free [amdgpu]();
+  56)   0.145 us    |      kfree();
+  56)   3.139 us    |    }
+  56)   0.139 us    |    mutex_unlock();
+  56)   8.424 us    |  }
+  56)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  56)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  56)               |      flush_work() {
+  56)               |        __flush_work.isra.0() {
+  56)   0.158 us    |          __cond_resched();
+  56)   0.151 us    |          __rcu_read_lock();
+  56)   0.161 us    |          _raw_spin_lock_irq();
+  56)   0.142 us    |          _raw_spin_unlock_irq();
+  56)   0.133 us    |          __rcu_read_unlock();
+  56)   1.531 us    |        }
+  56)   1.795 us    |      }
+  56)               |      down_write() {
+  56)   0.135 us    |        __cond_resched();
+  56)   0.391 us    |      }
+  56)   2.590 us    |    }
+  56)               |    mutex_lock() {
+  56)   0.135 us    |      __cond_resched();
+  56)   0.382 us    |    }
+  56)   0.140 us    |    up_write();
+  56)   0.143 us    |    mutex_unlock();
+  56)               |    mutex_lock() {
+  56)   0.134 us    |      __cond_resched();
+  56)   0.382 us    |    }
+  56)   0.141 us    |    kfd_process_device_data_by_id [amdgpu]();
+  56)   0.133 us    |    kfd_bind_process_to_device [amdgpu]();
+  56)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.135 us    |        __cond_resched();
+  56)   0.136 us    |        should_failslab.constprop.0();
+  56)   0.659 us    |      }
+  56)   0.138 us    |      __mutex_init();
+  56)   0.140 us    |      amdgpu_sync_create [amdgpu]();
+  56)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  56)   0.135 us    |        amdgpu_ras_get_context [amdgpu]();
+  56)   0.134 us    |        amdgpu_amdkfd_xcp_memory_size [amdgpu]();
+  56)   0.144 us    |        _raw_spin_lock();
+  56)   0.483 us    |        _raw_spin_unlock();
+  56)   1.527 us    |      }
+  56)               |      amdgpu_gem_object_create [amdgpu]() {
+  56)               |        amdgpu_bo_create_user [amdgpu]() {
+  56)               |          amdgpu_bo_create [amdgpu]() {
+  56)   0.924 us    |            kvmalloc_node();
+  56)   0.268 us    |            drm_gem_private_object_init();
+  56)   0.176 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  56)   8.310 us    |            amdttm_bo_init_reserved [amdttm]();
+  56)   0.254 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  56)   0.157 us    |            _raw_spin_lock();
+  56)   0.216 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.139 us    |            _raw_spin_unlock();
+  56)   0.140 us    |            ww_mutex_unlock();
+  56) + 12.409 us   |          }
+  56) + 12.716 us   |        }
+  56) + 13.012 us   |      }
+  56)               |      drm_vma_node_allow() {
+  56)               |        vma_node_allow() {
+  56)               |          kmalloc_trace() {
+  56)   0.155 us    |            __cond_resched();
+  56)   0.147 us    |            should_failslab.constprop.0();
+  56)   0.733 us    |          }
+  56)   0.142 us    |          _raw_write_lock();
+  56)   0.147 us    |          _raw_write_unlock();
+  56)   0.139 us    |          kfree();
+  56)   1.747 us    |        }
+  56)   1.997 us    |      }
+  56)               |      drm_gem_handle_create() {
+  56)               |        mutex_lock() {
+  56)   0.134 us    |          __cond_resched();
+  56)   0.389 us    |        }
+  56)               |        drm_gem_handle_create_tail() {
+  56)   0.131 us    |          mutex_is_locked();
+  56)   0.145 us    |          _raw_spin_lock();
+  56)   0.134 us    |          _raw_spin_unlock();
+  56)   0.139 us    |          mutex_unlock();
+  56)               |          drm_vma_node_allow() {
+  56)   0.503 us    |            vma_node_allow();
+  56)   0.746 us    |          }
+  56)               |          amdgpu_gem_object_open [amdgpu]() {
+  56)   0.137 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.200 us    |            ww_mutex_lock_interruptible();
+  56)   0.133 us    |            amdgpu_vm_bo_find [amdgpu]();
+  56)   0.738 us    |            amdgpu_vm_bo_add [amdgpu]();
+  56)   0.138 us    |            _raw_spin_lock();
+  56)   0.182 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  56)   0.131 us    |            _raw_spin_unlock();
+  56)   0.138 us    |            ww_mutex_unlock();
+  56)   2.859 us    |          }
+  56)   5.121 us    |        }
+  56)   5.868 us    |      }
+  56)               |      mutex_lock() {
+  56)   0.134 us    |        __cond_resched();
+  56)   0.377 us    |      }
+  56)   0.146 us    |      mutex_unlock();
+  56)               |      mutex_lock() {
+  56)   0.135 us    |        __cond_resched();
+  56)   0.375 us    |      }
+  56)               |      amdgpu_amdkfd_bo_validate_and_fence [amdgpu]() {
+  56)               |        ww_mutex_lock_interruptible() {
+  56)   0.147 us    |          __cond_resched();
+  56)   0.390 us    |        }
+  56)               |        amdgpu_amdkfd_bo_validate [amdgpu]() {
+  56)   0.134 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+  56)   0.140 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+  56)               |          amdttm_bo_validate [amdttm]() {
+  56)   0.307 us    |            ttm_resource_compatible [amdttm]();
+  56)   0.555 us    |          }
+  56)               |          amdgpu_bo_sync_wait [amdgpu]() {
+  56)   1.913 us    |            amdgpu_bo_sync_wait_resv [amdgpu]();
+  56)   2.161 us    |          }
+  56)   3.656 us    |        }
+  56)   0.152 us    |        amddma_resv_reserve_fences [amdkcl]();
+  56)   0.203 us    |        amddma_resv_add_fence [amdkcl]();
+  56)   0.153 us    |        _raw_spin_lock();
+  56)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+  56)   0.161 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+  56)   0.411 us    |        }
+  56)   0.131 us    |        _raw_spin_unlock();
+  56)   0.139 us    |        ww_mutex_unlock();
+  56)   6.701 us    |      }
+  56)   0.144 us    |      mutex_unlock();
+  56) + 32.816 us   |    }
+  56)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  56)               |      kmalloc_trace() {
+  56)   0.132 us    |        __cond_resched();
+  56)   0.130 us    |        should_failslab.constprop.0();
+  56)   0.639 us    |      }
+  56)   1.231 us    |    }
+  56)   0.164 us    |    mutex_unlock();
+  56) + 39.489 us   |  }
+  62)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  62)   0.360 us    |    irq_enter_rcu();
+  62)               |    __sysvec_irq_work() {
+  62)               |      __wake_up() {
+  62)   0.155 us    |        _raw_spin_lock_irqsave();
+  62)               |        __wake_up_common() {
+  62)               |          autoremove_wake_function() {
+  62)   2.884 us    |            default_wake_function();
+  62)   3.179 us    |          }
+  62)   3.762 us    |        }
+  62)   0.151 us    |        _raw_spin_unlock_irqrestore();
+  62)   4.616 us    |      }
+  62)   5.184 us    |    }
+  62)               |    irq_exit_rcu() {
+  62)   0.135 us    |      sched_core_idle_cpu();
+  62)   0.406 us    |    }
+  62)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  62)               |      flush_work() {
+  62)               |        __flush_work.isra.0() {
+  62)   0.152 us    |          __cond_resched();
+  62)   0.132 us    |          __rcu_read_lock();
+  62)   0.154 us    |          _raw_spin_lock_irq();
+  62)   0.152 us    |          _raw_spin_unlock_irq();
+  62)   0.135 us    |          __rcu_read_unlock();
+  62)   1.591 us    |        }
+  62)   1.849 us    |      }
+  62)               |      down_write() {
+  62)   0.133 us    |        __cond_resched();
+  62)   0.387 us    |      }
+  62)   2.642 us    |    }
+  62)               |    mutex_lock() {
+  62)   0.135 us    |      __cond_resched();
+  62)   0.385 us    |    }
+  62)   0.148 us    |    up_write();
+  62)   0.138 us    |    mutex_unlock();
+  62)               |    mutex_lock() {
+  62)   0.131 us    |      __cond_resched();
+  62)   0.375 us    |    }
+  62)   0.135 us    |    kfd_process_device_data_by_id [amdgpu]();
+  62)   0.134 us    |    kfd_bind_process_to_device [amdgpu]();
+  62)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  62)               |      create_sg_table [amdgpu]() {
+  62)               |        kmalloc_trace() {
+  62)   0.132 us    |          __cond_resched();
+  62)   0.130 us    |          should_failslab.constprop.0();
+  62)   0.931 us    |        }
+  62)               |        __kmalloc() {
+  62)   0.131 us    |          __cond_resched();
+  62)   0.130 us    |          should_failslab.constprop.0();
+  62)   0.835 us    |        }
+  62)   2.328 us    |      }
+  62)               |      kmalloc_trace() {
+  62)   0.135 us    |        __cond_resched();
+  62)   0.134 us    |        should_failslab.constprop.0();
+  62)   0.981 us    |      }
+  62)   0.135 us    |      __mutex_init();
+  62)   0.141 us    |      amdgpu_sync_create [amdgpu]();
+  62)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  62)   0.161 us    |        amdgpu_ras_get_context [amdgpu]();
+  62)   0.287 us    |        _raw_spin_lock();
+  62)   0.136 us    |        _raw_spin_unlock();
+  62)   1.285 us    |      }
+  62)               |      amdgpu_gem_object_create [amdgpu]() {
+  62)               |        amdgpu_bo_create_user [amdgpu]() {
+  62)               |          amdgpu_bo_create [amdgpu]() {
+  62)   0.393 us    |            kvmalloc_node();
+  62)   0.350 us    |            drm_gem_private_object_init();
+  62)   0.201 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  62)   6.834 us    |            amdttm_bo_init_reserved [amdttm]();
+  62)   0.281 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  62)   0.168 us    |            _raw_spin_lock();
+  62)   0.261 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  62)   0.147 us    |            _raw_spin_unlock();
+  62)   0.862 us    |            ww_mutex_unlock();
+  62) + 11.463 us   |          }
+  62) + 11.863 us   |        }
+  62) + 12.335 us   |      }
+  62)               |      drm_vma_node_allow() {
+  62)               |        vma_node_allow() {
+  62)               |          kmalloc_trace() {
+  62)   0.261 us    |            __cond_resched();
+  62)   0.132 us    |            should_failslab.constprop.0();
+  62)   1.217 us    |          }
+  62)   0.144 us    |          _raw_write_lock();
+  62)   0.132 us    |          _raw_write_unlock();
+  62)   0.138 us    |          kfree();
+  62)   2.410 us    |        }
+  62)   2.809 us    |      }
+  62)               |      drm_gem_handle_create() {
+  62)               |        mutex_lock() {
+  62)   0.135 us    |          __cond_resched();
+  62)   0.378 us    |        }
+  62)               |        drm_gem_handle_create_tail() {
+  62)   0.137 us    |          mutex_is_locked();
+  62)   0.250 us    |          _raw_spin_lock();
+  62)   0.133 us    |          _raw_spin_unlock();
+  62)   0.139 us    |          mutex_unlock();
+  62)               |          drm_vma_node_allow() {
+  62)   0.572 us    |            vma_node_allow();
+  62)   0.839 us    |          }
+  62)               |          amdgpu_gem_object_open [amdgpu]() {
+  62)   0.405 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  62)   0.222 us    |            ww_mutex_lock_interruptible();
+  62)   0.155 us    |            amdgpu_vm_bo_find [amdgpu]();
+  62)   1.629 us    |            amdgpu_vm_bo_add [amdgpu]();
+  62)   0.156 us    |            _raw_spin_lock();
+  62)   0.225 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  62)   0.148 us    |            _raw_spin_unlock();
+  62)   0.153 us    |            ww_mutex_unlock();
+  62)   4.797 us    |          }
+  62)   8.036 us    |        }
+  62)   8.963 us    |      }
+  62)               |      mutex_lock() {
+  62)   0.128 us    |        __cond_resched();
+  62)   0.731 us    |      }
+  62)   0.453 us    |      mutex_unlock();
+  62)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+  62)               |        ww_mutex_lock_interruptible() {
+  62)   0.142 us    |          __cond_resched();
+  62)   0.550 us    |        }
+  62)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+  62)   0.138 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+  62)   0.148 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+  62)               |          amdttm_bo_validate [amdttm]() {
+  62)   0.144 us    |            ttm_resource_compatible [amdttm]();
+  62)   1.569 us    |            amdttm_bo_mem_space [amdttm]();
+  62)   2.804 us    |            ttm_bo_handle_move_mem [amdttm]();
+  62)   5.045 us    |          }
+  62)               |          amdttm_bo_pin [amdttm]() {
+  62)   0.160 us    |            _raw_spin_lock();
+  62)   0.147 us    |            ttm_resource_del_bulk_move [amdttm]();
+  62)   0.145 us    |            _raw_spin_unlock();
+  62)   0.953 us    |          }
+  62)   6.978 us    |        }
+  62)               |        amdgpu_bo_sync_wait [amdgpu]() {
+  62)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+  62)   0.140 us    |            amdgpu_sync_create [amdgpu]();
+  62)   0.333 us    |            amdgpu_sync_resv [amdgpu]();
+  62)   0.221 us    |            amdgpu_sync_wait [amdgpu]();
+  62)   0.181 us    |            amdgpu_sync_free [amdgpu]();
+  62)   1.469 us    |          }
+  62)   1.743 us    |        }
+  62)   0.142 us    |        _raw_spin_lock();
+  62)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+  62)   0.419 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+  62)   0.893 us    |        }
+  62)   0.130 us    |        _raw_spin_unlock();
+  62)   0.143 us    |        ww_mutex_unlock();
+  62) + 11.980 us   |      }
+  62) + 44.825 us   |    }
+  62)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  62)               |      kmalloc_trace() {
+  62)   0.263 us    |        __cond_resched();
+  62)   0.135 us    |        should_failslab.constprop.0();
+  62)   1.273 us    |      }
+  62)   2.086 us    |    }
+  62)   0.141 us    |    mutex_unlock();
+  62) + 61.621 us   |  }
+  62)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  62)   0.266 us    |    irq_enter_rcu();
+  62)               |    __sysvec_irq_work() {
+  62)               |      __wake_up() {
+  62)   0.154 us    |        _raw_spin_lock_irqsave();
+  62)               |        __wake_up_common() {
+  62)               |          autoremove_wake_function() {
+  62)   2.454 us    |            default_wake_function();
+  62)   2.759 us    |          }
+  62)   3.373 us    |        }
+  62)   0.152 us    |        _raw_spin_unlock_irqrestore();
+  62)   4.394 us    |      }
+  62)   4.908 us    |    }
+  62)               |    irq_exit_rcu() {
+  62)   0.152 us    |      sched_core_idle_cpu();
+  62)   0.456 us    |    }
+  62)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  62)               |      flush_work() {
+  62)               |        __flush_work.isra.0() {
+  62)   0.153 us    |          __cond_resched();
+  62)   0.132 us    |          __rcu_read_lock();
+  62)   0.204 us    |          _raw_spin_lock_irq();
+  62)   0.160 us    |          _raw_spin_unlock_irq();
+  62)   0.134 us    |          __rcu_read_unlock();
+  62)   1.573 us    |        }
+  62)   1.817 us    |      }
+  62)               |      down_write() {
+  62)   0.133 us    |        __cond_resched();
+  62)   0.384 us    |      }
+  62)   2.683 us    |    }
+  62)               |    mutex_lock() {
+  62)   0.130 us    |      __cond_resched();
+  62)   0.451 us    |    }
+  62)   0.141 us    |    up_write();
+  62)   0.144 us    |    mutex_unlock();
+  62)               |    mutex_lock() {
+  62)   0.131 us    |      __cond_resched();
+  62)   0.376 us    |    }
+  62)   0.135 us    |    kfd_process_device_data_by_id [amdgpu]();
+  62)   0.134 us    |    kfd_bind_process_to_device [amdgpu]();
+  62)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  62)               |      create_sg_table [amdgpu]() {
+  62)               |        kmalloc_trace() {
+  62)   0.135 us    |          __cond_resched();
+  62)   0.131 us    |          should_failslab.constprop.0();
+  62)   0.918 us    |        }
+  62)               |        __kmalloc() {
+  62)   0.155 us    |          __cond_resched();
+  62)   0.135 us    |          should_failslab.constprop.0();
+  62)   0.732 us    |        }
+  62)   2.172 us    |      }
+  62)               |      kmalloc_trace() {
+  62)   0.133 us    |        __cond_resched();
+  62)   0.131 us    |        should_failslab.constprop.0();
+  62)   0.727 us    |      }
+  62)   0.150 us    |      __mutex_init();
+  62)   0.140 us    |      amdgpu_sync_create [amdgpu]();
+  62)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  62)   0.159 us    |        amdgpu_ras_get_context [amdgpu]();
+  62)   0.177 us    |        _raw_spin_lock();
+  62)   0.689 us    |        _raw_spin_unlock();
+  62)   1.818 us    |      }
+  62)               |      amdgpu_gem_object_create [amdgpu]() {
+  62)               |        amdgpu_bo_create_user [amdgpu]() {
+  62)               |          amdgpu_bo_create [amdgpu]() {
+  62)   0.399 us    |            kvmalloc_node();
+  62)   0.272 us    |            drm_gem_private_object_init();
+  62)   0.146 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  62)   5.650 us    |            amdttm_bo_init_reserved [amdttm]();
+  62)   0.274 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  62)   0.165 us    |            _raw_spin_lock();
+  62)   0.270 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  62)   0.151 us    |            _raw_spin_unlock();
+  62)   0.154 us    |            ww_mutex_unlock();
+  62)   9.289 us    |          }
+  62)   9.561 us    |        }
+  62)   9.868 us    |      }
+  62)               |      drm_vma_node_allow() {
+  62)               |        vma_node_allow() {
+  62)               |          kmalloc_trace() {
+  62)   0.133 us    |            __cond_resched();
+  62)   0.133 us    |            should_failslab.constprop.0();
+  62)   0.692 us    |          }
+  62)   0.141 us    |          _raw_write_lock();
+  62)   0.140 us    |          _raw_write_unlock();
+  62)   0.145 us    |          kfree();
+  62)   1.772 us    |        }
+  62)   2.061 us    |      }
+  62)               |      drm_gem_handle_create() {
+  62)               |        mutex_lock() {
+  62)   0.137 us    |          __cond_resched();
+  62)   0.387 us    |        }
+  62)               |        drm_gem_handle_create_tail() {
+  62)   0.136 us    |          mutex_is_locked();
+  62)   0.168 us    |          _raw_spin_lock();
+  62)   0.136 us    |          _raw_spin_unlock();
+  62)   0.140 us    |          mutex_unlock();
+  62)               |          drm_vma_node_allow() {
+  62)   0.586 us    |            vma_node_allow();
+  62)   0.845 us    |          }
+  62)               |          amdgpu_gem_object_open [amdgpu]() {
+  62)   0.173 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  62)   0.234 us    |            ww_mutex_lock_interruptible();
+  62)   0.137 us    |            amdgpu_vm_bo_find [amdgpu]();
+  62)   1.120 us    |            amdgpu_vm_bo_add [amdgpu]();
+  62)   0.155 us    |            _raw_spin_lock();
+  62)   0.193 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  62)   0.146 us    |            _raw_spin_unlock();
+  62)   0.154 us    |            ww_mutex_unlock();
+  62)   3.518 us    |          }
+  62)   6.302 us    |        }
+  62)   7.059 us    |      }
+  62)               |      mutex_lock() {
+  62)   0.129 us    |        __cond_resched();
+  62)   0.458 us    |      }
+  62)   0.244 us    |      mutex_unlock();
+  62)               |      amdgpu_amdkfd_gpuvm_pin_bo [amdgpu]() {
+  62)               |        ww_mutex_lock_interruptible() {
+  62)   0.172 us    |          __cond_resched();
+  62)   0.428 us    |        }
+  62)               |        amdgpu_bo_pin_restricted [amdgpu]() {
+  62)   0.134 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+  62)   0.156 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+  62)               |          amdttm_bo_validate [amdttm]() {
+  62)   0.202 us    |            ttm_resource_compatible [amdttm]();
+  62)   1.294 us    |            amdttm_bo_mem_space [amdttm]();
+  62)   2.595 us    |            ttm_bo_handle_move_mem [amdttm]();
+  62)   4.788 us    |          }
+  62)               |          amdttm_bo_pin [amdttm]() {
+  62)   0.156 us    |            _raw_spin_lock();
+  62)   0.286 us    |            ttm_resource_del_bulk_move [amdttm]();
+  62)   0.170 us    |            _raw_spin_unlock();
+  62)   1.156 us    |          }
+  62)   6.932 us    |        }
+  62)               |        amdgpu_bo_sync_wait [amdgpu]() {
+  62)               |          amdgpu_bo_sync_wait_resv [amdgpu]() {
+  62)   0.138 us    |            amdgpu_sync_create [amdgpu]();
+  62)   0.370 us    |            amdgpu_sync_resv [amdgpu]();
+  62)   0.304 us    |            amdgpu_sync_wait [amdgpu]();
+  62)   0.178 us    |            amdgpu_sync_free [amdgpu]();
+  62)   1.694 us    |          }
+  62)   1.992 us    |        }
+  62)   0.144 us    |        _raw_spin_lock();
+  62)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+  62)   0.197 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+  62)   0.456 us    |        }
+  62)   0.132 us    |        _raw_spin_unlock();
+  62)   0.139 us    |        ww_mutex_unlock();
+  62) + 11.224 us   |      }
+  62) + 37.799 us   |    }
+  62)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  62)               |      kmalloc_trace() {
+  62)   0.130 us    |        __cond_resched();
+  62)   0.151 us    |        should_failslab.constprop.0();
+  62)   0.737 us    |      }
+  62)   1.400 us    |    }
+  62)   0.173 us    |    mutex_unlock();
+  62) + 53.619 us   |  }
+  62)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  62)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  62)               |      flush_work() {
+  62)               |        __flush_work.isra.0() {
+  62)   0.168 us    |          __cond_resched();
+  62)   0.147 us    |          __rcu_read_lock();
+  62)   0.155 us    |          _raw_spin_lock_irq();
+  62)   0.151 us    |          _raw_spin_unlock_irq();
+  62)   0.144 us    |          __rcu_read_unlock();
+  62)   1.645 us    |        }
+  62)   1.949 us    |      }
+  62)               |      down_write() {
+  62)   0.129 us    |        __cond_resched();
+  62)   0.382 us    |      }
+  62)   2.728 us    |    }
+  62)               |    mutex_lock() {
+  62)   0.133 us    |      __cond_resched();
+  62)   0.383 us    |    }
+  62)   0.142 us    |    up_write();
+  62)   0.139 us    |    mutex_unlock();
+  62)               |    mutex_lock() {
+  62)   0.131 us    |      __cond_resched();
+  62)   0.375 us    |    }
+  62)   0.136 us    |    kfd_process_device_data_by_id [amdgpu]();
+  62)   0.138 us    |    kfd_bind_process_to_device [amdgpu]();
+  62)               |    down_read() {
+  62)   0.132 us    |      __cond_resched();
+  62)   0.381 us    |    }
+  62)               |    find_vma() {
+  62)   0.131 us    |      __rcu_read_lock();
+  62)   0.135 us    |      __rcu_read_unlock();
+  62)   0.735 us    |    }
+  62)   0.143 us    |    up_read();
+  62)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  62)               |      kmalloc_trace() {
+  62)   0.133 us    |        __cond_resched();
+  62)   0.131 us    |        should_failslab.constprop.0();
+  62)   0.655 us    |      }
+  62)   0.132 us    |      __mutex_init();
+  62)   0.139 us    |      amdgpu_sync_create [amdgpu]();
+  62)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  62)   0.140 us    |        amdgpu_ras_get_context [amdgpu]();
+  62)   0.143 us    |        _raw_spin_lock();
+  62)   0.136 us    |        _raw_spin_unlock();
+  62)   1.257 us    |      }
+  62)               |      amdgpu_gem_object_create [amdgpu]() {
+  62)               |        amdgpu_bo_create_user [amdgpu]() {
+  62)               |          amdgpu_bo_create [amdgpu]() {
+  62)   0.341 us    |            kvmalloc_node();
+  62)   0.247 us    |            drm_gem_private_object_init();
+  62)   0.147 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  62)   4.840 us    |            amdttm_bo_init_reserved [amdttm]();
+  62)   0.253 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  62)   0.144 us    |            _raw_spin_lock();
+  62)   0.206 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  62)   0.132 us    |            _raw_spin_unlock();
+  62)   0.141 us    |            ww_mutex_unlock();
+  62)   8.197 us    |          }
+  62)   8.452 us    |        }
+  62)   8.716 us    |      }
+  62)               |      drm_vma_node_allow() {
+  62)               |        vma_node_allow() {
+  62)               |          kmalloc_trace() {
+  62)   0.149 us    |            __cond_resched();
+  62)   0.148 us    |            should_failslab.constprop.0();
+  62)   0.727 us    |          }
+  62)   0.160 us    |          _raw_write_lock();
+  62)   0.133 us    |          _raw_write_unlock();
+  62)   0.134 us    |          kfree();
+  62)   1.762 us    |        }
+  62)   2.004 us    |      }
+  62)               |      drm_gem_handle_create() {
+  62)               |        mutex_lock() {
+  62)   0.129 us    |          __cond_resched();
+  62)   0.374 us    |        }
+  62)               |        drm_gem_handle_create_tail() {
+  62)   0.135 us    |          mutex_is_locked();
+  62)   0.142 us    |          _raw_spin_lock();
+  62)   0.134 us    |          _raw_spin_unlock();
+  62)   0.139 us    |          mutex_unlock();
+  62)               |          drm_vma_node_allow() {
+  62)   0.549 us    |            vma_node_allow();
+  62)   0.790 us    |          }
+  62)               |          amdgpu_gem_object_open [amdgpu]() {
+  62)   0.133 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  62)   0.201 us    |            ww_mutex_lock_interruptible();
+  62)   0.143 us    |            amdgpu_vm_bo_find [amdgpu]();
+  62)   0.747 us    |            amdgpu_vm_bo_add [amdgpu]();
+  62)   0.141 us    |            _raw_spin_lock();
+  62)   0.184 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  62)   0.132 us    |            _raw_spin_unlock();
+  62)   0.155 us    |            ww_mutex_unlock();
+  62)   2.888 us    |          }
+  62)   5.293 us    |        }
+  62)   6.038 us    |      }
+  62)               |      mutex_lock() {
+  62)   0.147 us    |        __cond_resched();
+  62)   0.397 us    |      }
+  62)   0.143 us    |      mutex_unlock();
+  62)               |      mutex_lock() {
+  62)   0.133 us    |        __cond_resched();
+  62)   0.376 us    |      }
+  62)   0.147 us    |      amdgpu_ttm_tt_set_userptr [amdgpu]();
+  62)               |      amdgpu_hmm_register [amdgpu]() {
+  62)               |        mmu_interval_notifier_insert() {
+  62)               |          __mmu_interval_notifier_insert() {
+  62)   0.144 us    |            _raw_spin_lock();
+  62)   0.133 us    |            _raw_spin_unlock();
+  62)   0.739 us    |          }
+  62)   0.993 us    |        }
+  62)   1.259 us    |      }
+  62)               |      amdgpu_ttm_tt_get_user_pages [amdgpu]() {
+  62)               |        down_read() {
+  62)   0.129 us    |          __cond_resched();
+  62)   0.375 us    |        }
+  62)   0.471 us    |        __rcu_read_lock();
+  62)   0.134 us    |        __rcu_read_unlock();
+  62)               |        amdgpu_hmm_range_get_pages [amdgpu]() {
+  62)               |          kmalloc_trace() {
+  62)   0.133 us    |            __cond_resched();
+  62)   0.135 us    |            should_failslab.constprop.0();
+  62)   0.649 us    |          }
+  62)               |          kvmalloc_node() {
+  62)   0.513 us    |            __kmalloc_node();
+  62)   0.749 us    |          }
+  62)               |          mmu_interval_read_begin() {
+  62)   0.142 us    |            _raw_spin_lock();
+  62)   0.131 us    |            _raw_spin_unlock();
+  62)   0.622 us    |          }
+  62)               |          hmm_range_fault() {
+  62) + 11.313 us   |            walk_page_range();
+  62)   1.476 us    |            walk_page_range();
+  62) + 13.253 us   |          }
+  62) + 15.916 us   |        }
+  62)   0.170 us    |        up_read();
+  62)               |        mmput() {
+  62)   0.161 us    |          __cond_resched();
+  62)   0.442 us    |        }
+  62) + 18.472 us   |      }
+  62)               |      ww_mutex_lock() {
+  62)   0.145 us    |        __cond_resched();
+  62)   0.429 us    |      }
+  62)   0.159 us    |      amdgpu_bo_placement_from_domain [amdgpu]();
+  62)               |      amdttm_bo_validate [amdttm]() {
+  62)   0.138 us    |        ttm_resource_compatible [amdttm]();
+  62)               |        amdttm_bo_mem_space [amdttm]() {
+  62)   0.144 us    |          amddma_resv_reserve_fences [amdkcl]();
+  62)               |          amdttm_resource_alloc [amdttm]() {
+  62)   0.660 us    |            amdgpu_preempt_mgr_new [amdgpu]();
+  62)   0.152 us    |            _raw_spin_lock();
+  62)   0.137 us    |            ttm_resource_add_bulk_move [amdttm]();
+  62)   0.134 us    |            _raw_spin_unlock();
+  62)   1.708 us    |          }
+  62)               |          ttm_bo_add_move_fence.constprop.0 [amdttm]() {
+  62)   0.143 us    |            _raw_spin_lock();
+  62)   0.133 us    |            _raw_spin_unlock();
+  62)   0.645 us    |          }
+  62)   2.979 us    |        }
+  62)               |        ttm_bo_handle_move_mem [amdttm]() {
+  62)               |          amdttm_bo_unmap_virtual [amdttm]() {
+  62)   0.421 us    |            unmap_mapping_range();
+  62)   0.144 us    |            ttm_mem_io_free [amdttm]();
+  62)   0.919 us    |          }
+  62)   0.136 us    |          amdttm_tt_create [amdttm]();
+  62)               |          amdttm_tt_populate [amdttm]() {
+  62)   0.439 us    |            amdgpu_ttm_tt_populate [amdgpu]();
+  62)   0.701 us    |          }
+  62)   0.136 us    |          amddma_resv_reserve_fences [amdkcl]();
+  62)               |          amdgpu_bo_move [amdgpu]() {
+  62)   0.301 us    |            __kmalloc();
+  62)   2.668 us    |            dma_map_sgtable();
+  62)   0.206 us    |            drm_prime_sg_to_dma_addr_array();
+  62)   0.360 us    |            amdgpu_bo_move_notify [amdgpu]();
+  62)   0.643 us    |            amdttm_resource_free [amdttm]();
+  62)   5.383 us    |          }
+  62)   8.062 us    |        }
+  62) + 11.672 us   |      }
+  62)   0.159 us    |      _raw_spin_lock();
+  62)               |      amdttm_bo_move_to_lru_tail [amdttm]() {
+  62)   0.181 us    |        ttm_resource_move_to_lru_tail [amdttm]();
+  62)   0.431 us    |      }
+  62)   0.150 us    |      _raw_spin_unlock();
+  62)   0.144 us    |      ww_mutex_unlock();
+  62)               |      amdgpu_ttm_tt_get_user_pages_done [amdgpu]() {
+  62)   0.139 us    |        ___drm_dbg();
+  62)               |        amdgpu_hmm_range_get_pages_done [amdgpu]() {
+  62)               |          kvfree() {
+  62)   0.361 us    |            is_vmalloc_addr();
+  62)   0.314 us    |            kfree();
+  62)   1.056 us    |          }
+  62)   0.255 us    |          kfree();
+  62)   1.671 us    |        }
+  62)   2.196 us    |      }
+  62)   0.142 us    |      mutex_unlock();
+  62) + 58.682 us   |    }
+  62)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  62)               |      kmalloc_trace() {
+  62)   0.135 us    |        __cond_resched();
+  62)   0.143 us    |        should_failslab.constprop.0();
+  62)   0.659 us    |      }
+  62)   1.124 us    |    }
+  62)   0.140 us    |    mutex_unlock();
+  62) + 67.340 us   |  }
+  62)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  62)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  62)               |      flush_work() {
+  62)               |        __flush_work.isra.0() {
+  62)   0.157 us    |          __cond_resched();
+  62)   0.163 us    |          __rcu_read_lock();
+  62)   0.176 us    |          _raw_spin_lock_irq();
+  62)   0.166 us    |          _raw_spin_unlock_irq();
+  62)   0.173 us    |          __rcu_read_unlock();
+  62)   1.626 us    |        }
+  62)   1.891 us    |      }
+  62)               |      down_write() {
+  62)   0.134 us    |        __cond_resched();
+  62)   0.383 us    |      }
+  62)   2.660 us    |    }
+  62)               |    mutex_lock() {
+  62)   0.132 us    |      __cond_resched();
+  62)   0.386 us    |    }
+  62)   0.148 us    |    up_write();
+  62)   0.140 us    |    mutex_unlock();
+  62)               |    mutex_lock() {
+  62)   0.131 us    |      __cond_resched();
+  62)   0.374 us    |    }
+  62)   0.135 us    |    kfd_process_device_data_by_id [amdgpu]();
+  62)   0.136 us    |    kfd_bind_process_to_device [amdgpu]();
+  62)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  62)               |      kmalloc_trace() {
+  62)   0.135 us    |        __cond_resched();
+  62)   0.133 us    |        should_failslab.constprop.0();
+  62)   0.664 us    |      }
+  62)   0.135 us    |      __mutex_init();
+  62)   0.140 us    |      amdgpu_sync_create [amdgpu]();
+  62)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  62)   0.134 us    |        amdgpu_ras_get_context [amdgpu]();
+  62)   0.143 us    |        _raw_spin_lock();
+  62)   0.133 us    |        _raw_spin_unlock();
+  62)   0.909 us    |      }
+  62)               |      amdgpu_gem_object_create [amdgpu]() {
+  62)               |        amdgpu_bo_create_user [amdgpu]() {
+  62)               |          amdgpu_bo_create [amdgpu]() {
+  62)   0.385 us    |            kvmalloc_node();
+  62)   0.306 us    |            drm_gem_private_object_init();
+  62)   0.147 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  62) + 34.351 us   |            amdttm_bo_init_reserved [amdttm]();
+  62)   0.322 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  62)   0.177 us    |            _raw_spin_lock();
+  62)   0.222 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  62)   0.143 us    |            _raw_spin_unlock();
+  62)   0.147 us    |            ww_mutex_unlock();
+  62) + 37.778 us   |          }
+  62) + 38.020 us   |        }
+  62) + 38.309 us   |      }
+  62)               |      drm_vma_node_allow() {
+  62)               |        vma_node_allow() {
+  62)               |          kmalloc_trace() {
+  62)   0.135 us    |            __cond_resched();
+  62)   0.132 us    |            should_failslab.constprop.0();
+  62)   1.094 us    |          }
+  62)   0.141 us    |          _raw_write_lock();
+  62)   0.143 us    |          _raw_write_unlock();
+  62)   0.144 us    |          kfree();
+  62)   2.139 us    |        }
+  62)   2.388 us    |      }
+  62)               |      drm_gem_handle_create() {
+  62)               |        mutex_lock() {
+  62)   0.134 us    |          __cond_resched();
+  62)   0.394 us    |        }
+  62)               |        drm_gem_handle_create_tail() {
+  62)   0.134 us    |          mutex_is_locked();
+  62)   0.150 us    |          _raw_spin_lock();
+  62)   0.131 us    |          _raw_spin_unlock();
+  62)   0.138 us    |          mutex_unlock();
+  62)               |          drm_vma_node_allow() {
+  62)   0.537 us    |            vma_node_allow();
+  62)   0.778 us    |          }
+  62)               |          amdgpu_gem_object_open [amdgpu]() {
+  62)   0.131 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  62)   0.186 us    |            ww_mutex_lock_interruptible();
+  62)   0.134 us    |            amdgpu_vm_bo_find [amdgpu]();
+  62)   0.756 us    |            amdgpu_vm_bo_add [amdgpu]();
+  62)   0.160 us    |            _raw_spin_lock();
+  62)   0.188 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  62)   0.134 us    |            _raw_spin_unlock();
+  62)   0.141 us    |            ww_mutex_unlock();
+  62)   2.878 us    |          }
+  62)   5.101 us    |        }
+  62)   5.847 us    |      }
+  62)               |      mutex_lock() {
+  62)   0.131 us    |        __cond_resched();
+  62)   0.378 us    |      }
+  62)   0.143 us    |      mutex_unlock();
+  62)               |      mutex_lock() {
+  62)   0.129 us    |        __cond_resched();
+  62)   0.372 us    |      }
+  62)               |      amdgpu_amdkfd_bo_validate_and_fence [amdgpu]() {
+  62)               |        ww_mutex_lock_interruptible() {
+  62)   0.149 us    |          __cond_resched();
+  62)   0.404 us    |        }
+  62)               |        amdgpu_amdkfd_bo_validate [amdgpu]() {
+  62)   0.149 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+  62)   0.141 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+  62)               |          amdttm_bo_validate [amdttm]() {
+  62)   0.286 us    |            ttm_resource_compatible [amdttm]();
+  62)   0.533 us    |          }
+  62)               |          amdgpu_bo_sync_wait [amdgpu]() {
+  62)   0.611 us    |            amdgpu_bo_sync_wait_resv [amdgpu]();
+  62)   0.848 us    |          }
+  62)   2.281 us    |        }
+  62)   0.148 us    |        amddma_resv_reserve_fences [amdkcl]();
+  62)   0.168 us    |        amddma_resv_add_fence [amdkcl]();
+  62)   0.141 us    |        _raw_spin_lock();
+  62)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+  62)   0.155 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+  62)   0.411 us    |        }
+  62)   0.133 us    |        _raw_spin_unlock();
+  62)   0.142 us    |        ww_mutex_unlock();
+  62)   4.927 us    |      }
+  62)   0.141 us    |      mutex_unlock();
+  62) + 56.392 us   |    }
+  62)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  62)               |      kmalloc_trace() {
+  62)   0.135 us    |        __cond_resched();
+  62)   0.133 us    |        should_failslab.constprop.0();
+  62)   0.650 us    |      }
+  62)   1.141 us    |    }
+  62)   0.459 us    |    mutex_unlock();
+  62) + 63.377 us   |  }
+  62)               |  kfd_ioctl_alloc_memory_of_gpu [amdgpu]() {
+  62)               |    svm_range_list_lock_and_flush_work [amdgpu]() {
+  62)               |      flush_work() {
+  62)               |        __flush_work.isra.0() {
+  62)   0.157 us    |          __cond_resched();
+  62)   0.151 us    |          __rcu_read_lock();
+  62)   0.155 us    |          _raw_spin_lock_irq();
+  62)   0.151 us    |          _raw_spin_unlock_irq();
+  62)   0.136 us    |          __rcu_read_unlock();
+  62)   1.541 us    |        }
+  62)   1.809 us    |      }
+  62)               |      down_write() {
+  62)   0.153 us    |        __cond_resched();
+  62)   0.424 us    |      }
+  62)   2.622 us    |    }
+  62)               |    mutex_lock() {
+  62)   0.146 us    |      __cond_resched();
+  62)   0.412 us    |    }
+  62)   0.140 us    |    up_write();
+  62)   0.136 us    |    mutex_unlock();
+  62)               |    mutex_lock() {
+  62)   0.132 us    |      __cond_resched();
+  62)   0.375 us    |    }
+  62)   0.136 us    |    kfd_process_device_data_by_id [amdgpu]();
+  62)   0.133 us    |    kfd_bind_process_to_device [amdgpu]();
+  62)               |    amdgpu_amdkfd_gpuvm_alloc_memory_of_gpu [amdgpu]() {
+  62)               |      kmalloc_trace() {
+  62)   0.133 us    |        __cond_resched();
+  62)   0.131 us    |        should_failslab.constprop.0();
+  62)   0.687 us    |      }
+  62)   0.133 us    |      __mutex_init();
+  62)   0.136 us    |      amdgpu_sync_create [amdgpu]();
+  62)               |      amdgpu_amdkfd_reserve_mem_limit [amdgpu]() {
+  62)   0.137 us    |        amdgpu_ras_get_context [amdgpu]();
+  62)   0.144 us    |        amdgpu_amdkfd_xcp_memory_size [amdgpu]();
+  62)   0.145 us    |        _raw_spin_lock();
+  62)   0.388 us    |        _raw_spin_unlock();
+  62)   1.535 us    |      }
+  62)               |      amdgpu_gem_object_create [amdgpu]() {
+  62)               |        amdgpu_bo_create_user [amdgpu]() {
+  62)               |          amdgpu_bo_create [amdgpu]() {
+  62)   0.345 us    |            kvmalloc_node();
+  62)   0.248 us    |            drm_gem_private_object_init();
+  62)   0.171 us    |            amdgpu_bo_placement_from_domain [amdgpu]();
+  62)   3.898 us    |            amdttm_bo_init_reserved [amdttm]();
+  62)   0.269 us    |            amdgpu_cs_report_moved_bytes [amdgpu]();
+  62)   0.145 us    |            _raw_spin_lock();
+  62)   0.187 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  62)   0.138 us    |            _raw_spin_unlock();
+  62)   0.141 us    |            ww_mutex_unlock();
+  62)   7.258 us    |          }
+  62)   7.501 us    |        }
+  62)   7.775 us    |      }
+  62)               |      drm_vma_node_allow() {
+  62)               |        vma_node_allow() {
+  62)               |          kmalloc_trace() {
+  62)   0.447 us    |            __cond_resched();
+  62)   0.191 us    |            should_failslab.constprop.0();
+  62)   1.040 us    |          }
+  62)   0.138 us    |          _raw_write_lock();
+  62)   0.134 us    |          _raw_write_unlock();
+  62)   0.130 us    |          kfree();
+  62)   2.024 us    |        }
+  62)   2.271 us    |      }
+  62)               |      drm_gem_handle_create() {
+  62)               |        mutex_lock() {
+  62)   0.145 us    |          __cond_resched();
+  62)   0.433 us    |        }
+  62)               |        drm_gem_handle_create_tail() {
+  62)   0.132 us    |          mutex_is_locked();
+  62)   0.148 us    |          _raw_spin_lock();
+  62)   0.134 us    |          _raw_spin_unlock();
+  62)   0.138 us    |          mutex_unlock();
+  62)               |          drm_vma_node_allow() {
+  62)   0.494 us    |            vma_node_allow();
+  62)   0.731 us    |          }
+  62)               |          amdgpu_gem_object_open [amdgpu]() {
+  62)   0.135 us    |            amdgpu_ttm_tt_get_usermm [amdgpu]();
+  62)   0.182 us    |            ww_mutex_lock_interruptible();
+  62)   0.129 us    |            amdgpu_vm_bo_find [amdgpu]();
+  62)   0.720 us    |            amdgpu_vm_bo_add [amdgpu]();
+  62)   0.137 us    |            _raw_spin_lock();
+  62)   0.183 us    |            amdttm_bo_move_to_lru_tail [amdttm]();
+  62)   0.129 us    |            _raw_spin_unlock();
+  62)   0.139 us    |            ww_mutex_unlock();
+  62)   2.811 us    |          }
+  62)   5.500 us    |        }
+  62)   6.303 us    |      }
+  62)               |      mutex_lock() {
+  62)   0.137 us    |        __cond_resched();
+  62)   0.379 us    |      }
+  62)   0.141 us    |      mutex_unlock();
+  62)               |      mutex_lock() {
+  62)   0.132 us    |        __cond_resched();
+  62)   0.369 us    |      }
+  62)               |      amdgpu_amdkfd_bo_validate_and_fence [amdgpu]() {
+  62)               |        ww_mutex_lock_interruptible() {
+  62)   0.143 us    |          __cond_resched();
+  62)   0.386 us    |        }
+  62)               |        amdgpu_amdkfd_bo_validate [amdgpu]() {
+  62)   0.131 us    |          amdgpu_ttm_tt_get_usermm [amdgpu]();
+  62)   0.138 us    |          amdgpu_bo_placement_from_domain [amdgpu]();
+  62)               |          amdttm_bo_validate [amdttm]() {
+  62)   0.258 us    |            ttm_resource_compatible [amdttm]();
+  62)   0.500 us    |          }
+  62)               |          amdgpu_bo_sync_wait [amdgpu]() {
+  62)   1.778 us    |            amdgpu_bo_sync_wait_resv [amdgpu]();
+  62)   2.025 us    |          }
+  62)   3.389 us    |        }
+  62)   0.136 us    |        amddma_resv_reserve_fences [amdkcl]();
+  62)   0.178 us    |        amddma_resv_add_fence [amdkcl]();
+  62)   0.158 us    |        _raw_spin_lock();
+  62)               |        amdttm_bo_move_to_lru_tail [amdttm]() {
+  62)   0.136 us    |          ttm_resource_move_to_lru_tail [amdttm]();
+  62)   0.379 us    |        }
+  62)   0.146 us    |        _raw_spin_unlock();
+  62)   0.151 us    |        ww_mutex_unlock();
+  62)   5.985 us    |      }
+  62)   0.140 us    |      mutex_unlock();
+  62) + 27.835 us   |    }
+  62)               |    kfd_process_device_create_obj_handle [amdgpu]() {
+  62)               |      kmalloc_trace() {
+  62)   0.134 us    |        __cond_resched();
+  62)   0.131 us    |        should_failslab.constprop.0();
+  62)   0.638 us    |      }
+  62)   1.160 us    |    }
+  62)   0.139 us    |    mutex_unlock();
+  62) + 34.451 us   |  }

@@ -1,0 +1,1 @@
+./funcgraph -m6 -f kfd_ioctl_alloc_memory_of_gpu
